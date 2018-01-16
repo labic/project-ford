@@ -1,6 +1,7 @@
 var ford = angular.module('ford', [
   'ui.router',
   'ngResource',
-  'ford.api'
+  'ford.api',
+  'ford.core'
 ]);
 
