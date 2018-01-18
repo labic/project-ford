@@ -3,6 +3,6 @@
   angular
     .module('ford.core')
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/coletas');
+        $urlRouterProvider.otherwise('home');
     });
 })();
