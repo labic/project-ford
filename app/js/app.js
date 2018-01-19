@@ -6,11 +6,11 @@ var ford = angular.module('ford', [
 ]).config(function ($stateProvider) {
   $stateProvider
     .state('home', {
-      url: 'home',
-      // views: {
-      //   '': { 
-      //     templateUrl: 'modules/usuario/views/login.html' }
-      // }
+      url: '/home',
+      views: {
+        '': { 
+          templateUrl: 'modules/core/views/inicio.html' }
+      }
   })
  
 });
