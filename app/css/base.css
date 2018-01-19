@@ -5,8 +5,8 @@ body {
     color: #333;
     background-color: #fff;
 }
-/* navbar */
 
+/* navbar */
 .navbar-topo {
     background-color: #537EA3;
     border: none;
@@ -47,13 +47,16 @@ body {
     color: #000000;
     font-size: 14px;
 }
-#login-dp:focus {
-    display: list-item;
-}
 .navbar-botao {
     float: left;
     font-size: 20px;
     margin: 25px 15px 10px 15px;
+}
+
+/* login page */
+
+#login-dp:focus {
+    display: list-item;
 }
 #login-dp{
     min-width: 250px;
@@ -81,6 +84,7 @@ body {
     margin-bottom: 10px;
 }
 .btn-fb{
+    min-width: 49%;
     color: #fff;
     background-color:#3b5998;
 }
@@ -89,6 +93,7 @@ body {
     background-color:#496ebc
 }
 .btn-tw{
+    min-width: 49%;
     color: #fff;
     background-color:#55acee;
 }
