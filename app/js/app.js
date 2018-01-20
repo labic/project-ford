@@ -4,7 +4,7 @@ var ford = angular.module('ford', [
   'ford.core',
   'ford.login',
   'ford.analises',
-  'ford.coletas'
+  'ford.visualizacao'
 ]).config(function ($stateProvider) {
   $stateProvider
     .state('home', {
