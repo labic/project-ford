@@ -48,8 +48,8 @@
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form> -->
-            <ul class="navbar-botao">
-                <a href="#login">Login</a>
+            <ul ui-view="navmenu">
+                <a href="#login" class="navbar-botao">Login</a>
                <!-- <li><p class="navbar-botao">Notificações</p></li> -->
             </ul>
           </div><!-- /.navbar-collapse -->
@@ -89,5 +89,13 @@
     <script src="modules/usuario/routes.js"></script>
     <script src="modules/usuario/controllers/mainLogin.js"></script>
 
+    <script src="modules/analises/module.js"></script>
+    <script src="modules/analises/routes.js"></script>
+    <script src="modules/analises/controllers/main.js"></script>
+
+    <script src="modules/coletas/module.js"></script>
+    <script src="modules/coletas/routes.js"></script>
+    <script src="modules/coletas/controllers/main.js"></script>
+    
   </body>
 </html>
