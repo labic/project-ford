@@ -26,7 +26,7 @@ ford.controller('mainAnalises', function ($scope, $http, settings) {
 
     if ($scope.startPage == 1) {
 
-      $scope.replyPost(newFilter.time, newFilter.profileType, newFilter.actor, undefined, undefined, undefined);
+  
 
       $scope.startPage = 0;
     } else {
