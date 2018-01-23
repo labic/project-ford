@@ -1,0 +1,22 @@
+    <div class="modal-header">
+        <h3 class="modal-title">Área do usuário</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Dados</h4>
+        <ul>
+            <li >Nome completo: {{user.name}}</li>
+            <li >Data de nascimento: {{user.date}}</li>
+            <li >Tipo de usuário: {{user.type}}</li>
+        </ul>
+        <br>
+        <br>
+        <p><input type="text" name="input" ng-model="name" ng-trim="false"></p>
+        
+        <p><input type="text" name="input" ng-model="date" ng-trim="false"></p>
+        
+        <p><input type="text" name="input" ng-model="type" ng-trim="false"></p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="change(name,date,type)">Mudar</button>
+        <button class="btn btn-warning" ng-click="cancel()">Sair</button>
+    </div>
