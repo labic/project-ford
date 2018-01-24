@@ -8,7 +8,7 @@
       url: '/analises',
       views: {
         '': { templateUrl: 'modules/analises/views/main.html' },
-        'navmenu': { templateUrl: 'modules/analises/views/navmenu.html' }
+        'navmenu': { templateUrl: 'modules/analises/views/partials/navmenu.html' }
       }
     });
   });
