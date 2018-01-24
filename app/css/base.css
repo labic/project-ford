@@ -53,6 +53,44 @@ body {
     margin: 25px 15px 10px 15px;
 }
 
+/* menu superior */
+.menu_sup {
+    background-color: #E6E6E6;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    display: inline;
+    top: 80px;
+    color: #000;
+    list-style:none;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.menu_sup ul{
+    margin: 10px 10px 0px 10px;
+    -webkit-padding-start: 0px;
+}
+.menu_sup ul li{
+    /* float: left; */
+    padding: 10px 0px 8px 0px;
+    display: inline;
+    box-sizing: border-box;
+    text-align: -webkit-match-parent;
+}
+.menu_sup ul li a {
+    padding: 4px 10px 4px 10px;
+    display: inline-block;
+
+    /* visual do link */
+    font-size: 18px;
+    font-weight: bold;
+    color: #575757;
+    text-decoration: none;
+}
+.menu_sup ul li a:hover {
+    color: #009688;
+    cursor: hand;
+}
+
 /* login page */
 
 #login-dp:focus {

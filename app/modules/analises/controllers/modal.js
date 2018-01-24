@@ -10,7 +10,7 @@ ford.controller('modal', function ($scope, $uibModal) {
   $scope.open = function (size) {
 
     var modalInstance = $uibModal.open({
-      templateUrl: 'modules/analises/views/item.html',
+      templateUrl: 'modules/analises/views/partials/item.html',
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
