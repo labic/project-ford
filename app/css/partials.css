@@ -5,6 +5,7 @@
     height: 50px;
     width: 100%;
     position: fixed;
+    z-index: 1;
     display: inline;
     top: 80px;
     color: #000;
@@ -67,6 +68,38 @@
 .menu_inf img{
     margin-right: 20px;
 }
+
+#principal {
+    position: fixed;
+    top: 130px;
+    left: 0px;
+    width: calc(100% - 200px);
+    height: calc(100% - 180px);
+    padding: 20px 85px 20px 85px;
+    background-color: #FFFFFF;
+    color: #707070;
+    overflow: auto;
+  }
+
+#principal > .card {
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#lateral_direita {
+    position: fixed;
+    top: 130px;
+    right: 0px;
+    font-size: 12px;
+    width: 200px;
+    height: calc(100% - 180px);
+    padding: 20px 10px 20px 10px;
+    background-color: #E1F5FE;
+    color: #707070;
+    overflow: auto;
+  }
 
 /* select */
 
