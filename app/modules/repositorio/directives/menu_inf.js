@@ -2,10 +2,10 @@
     'use strict';
   
     angular
-      .module('ford.analises')
+      .module('ford.repositorio')
       .directive('menuInferior', function () {
         return {
-          templateUrl: 'modules/analises/directives/menu-inferior.html',
+          templateUrl: 'modules/repositorio/directives/menu-inferior.html',
           restrict: 'E'
         };
       });

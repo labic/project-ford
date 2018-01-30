@@ -1,12 +1,46 @@
-ford.controller('mainAnalises', function ($scope, $http, settings) {
+ford.controller('mainRepositorio', function ($scope, $http, settings) {
   
   //pega as configurações de arquivo
   $scope.config = {
-    filter: settings.get('analises.filters')
+    filter: settings.get('repositorio.filters')
   };
 
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
+
+  //exemplo de arquivos
+  $scope.arquivos = [
+    { 
+      Nome:'Eleição',
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+
+    },
+    {
+      Nome:'Copa do Mundo',
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+    },
+    {
+      Nome:'Japão',
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+    },
+    {
+      Nome:'Lula',
+      img:'img/objetos/arquivo-100.png',
+      tipo:'arquivo'
+    },
+    {
+      Nome:'Bolsonaro',
+      img:'img/objetos/arquivo-100.png',
+      tipo:'arquivo'
+    },
+    {
+      Nome:'Neymar',
+      img:'img/objetos/arquivo-100.png',
+      tipo:'arquivo'
+    }];
 
   $scope.filter = {
     status: undefined,
@@ -19,7 +53,7 @@ ford.controller('mainAnalises', function ($scope, $http, settings) {
    $scope.$watch('filter', function (newFilter, oldFilter) {
     console.log(oldFilter);
 
-    $(".analises").scrollTop("slow");
+    $(".repositorio").scrollTop("slow");
     $scope.countpage = 0;
 
     if ($scope.startPage == 1) {

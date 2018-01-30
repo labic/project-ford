@@ -5,6 +5,7 @@
     height: 50px;
     width: 100%;
     position: fixed;
+    z-index: 1;
     display: inline;
     top: 80px;
     color: #000;
@@ -12,18 +13,18 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .menu_sup ul{
-    margin: 10px 10px 0px 10px;
+    margin: 5px 20px 0px 20px;
     -webkit-padding-start: 0px;
 }
 .menu_sup ul li{
     /* float: left; */
-    padding: 10px 0px 8px 0px;
+    padding: 10px 0px 10px 0px;
     display: inline;
     box-sizing: border-box;
     text-align: -webkit-match-parent;
 }
 .menu_sup ul li a {
-    padding: 4px 10px 4px 10px;
+    padding: 5px 10px 5px 10px;
     display: inline-block;
 
     /* visual do link */
@@ -44,7 +45,7 @@
     width: 100%;
     position: fixed;
     display: inline;
-    padding: 10px 20px 0px 30px;
+    padding: 10px 20px 0px 20px;
     bottom: 0px;
     color: #000;
     list-style:none;
@@ -64,15 +65,41 @@
     box-sizing: border-box;
     text-align: -webkit-match-parent;
 }
-.glyphicon {
-    font-size: 1.8em;
-    margin-right: 10px;
-    color: #A2A2A2;
+.menu_inf img{
+    margin-right: 20px;
 }
-.glyphicon:hover {
-    color: #2196F3;
-    cursor: hand;
+
+#principal {
+    position: fixed;
+    top: 130px;
+    left: 0px;
+    width: calc(100% - 200px);
+    height: calc(100% - 180px);
+    padding: 20px 85px 20px 85px;
+    background-color: #FFFFFF;
+    color: #707070;
+    overflow: auto;
+  }
+
+#principal > .card {
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+    margin-right: 20px;
 }
+
+#lateral_direita {
+    position: fixed;
+    top: 130px;
+    right: 0px;
+    font-size: 12px;
+    width: 200px;
+    height: calc(100% - 180px);
+    padding: 20px 10px 20px 10px;
+    background-color: #E1F5FE;
+    color: #707070;
+    overflow: auto;
+  }
 
 /* select */
 
