@@ -1,49 +1,42 @@
 ford.controller('mainAnalises', function ($scope, $http, settings) {
-
+  
+  //pega as configurações de arquivo
   $scope.config = {
     filter: settings.get('analises.filters')
   };
 
-  // Filtro útil
+  $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
+  $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
+
   $scope.filter = {
-    time: $scope.config.filter.period.values[2].value,
-    profileType: 'page',
-    actor: $scope.config.filter.actors[0].tag,
-    word: undefined,
-    theme: undefined,
-    tag: undefined,
-    page: 1,
-    per_page: 25
+    status: undefined,
+    ordem: 'Nome',
+    name: undefined,
+    favorite: false
   };
 
-  $scope.startPage = 1;
+   // Watch assiste a todos os filtros presentes na página esperando alguma alteração.
+   $scope.$watch('filter', function (newFilter, oldFilter) {
+    console.log(oldFilter);
 
-  // Watch assiste a todos os filtros presentes na página esperando alguma alteração.
-  $scope.$watch('filter', function (newFilter, oldFilter) {
-
-    $(".geralTweets_result").scrollTop("slow");
+    $(".analises").scrollTop("slow");
     $scope.countpage = 0;
 
     if ($scope.startPage == 1) {
-
-  
-
+      //carregar itens da primeira página
       $scope.startPage = 0;
     } else {
 
-      if ((newFilter.actor != oldFilter.actor) || (newFilter.time != oldFilter.time)) {
-        $scope.loadReplys(newFilter.time, newFilter.profileType, newFilter.actor);
+      if ((newFilter.status != oldFilter.status) || (newFilter.ordem != oldFilter.ordem)) {
+        //$scope.loadItems(newFilter.status, newFilter.ordem, undefined);
       }
-      if (newFilter.word != oldFilter.word) {
-        $scope.replyWordPosts(newFilter.time, newFilter.actor, newFilter.word);
-      }
-      if (newFilter.theme != oldFilter.theme) {
-        $scope.replyPost(newFilter.time, newFilter.profileType, newFilter.actor, undefined, newFilter.theme, undefined);
-      }
-      if (newFilter.tag != oldFilter.tag) {
-        $scope.replyPost(newFilter.time, newFilter.profileType, newFilter.actor, undefined, undefined, newFilter.tag);
+      if (newFilter.name != oldFilter.name) {
+        //$scope.loadItems(newFilter.status, newFilter.ordem, newFilter.name);
       }
     }
+
+    console.log(newFilter);
+
   }, true);
 
   /*************** Funções de tratamento ***************/
