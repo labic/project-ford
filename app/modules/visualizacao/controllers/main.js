@@ -4,7 +4,7 @@ ford.controller('mainVisualizacao', function ($scope, $http, settings) {
     filter: settings.get('visualizacao.filters')
   };
 
-  // Filtro útil
+  // Filtro útill
   $scope.filter = {
     time: $scope.config.filter.period.values[2].value,
     profileType: 'page',
