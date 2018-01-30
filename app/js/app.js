@@ -5,7 +5,7 @@ var ford = angular.module('ford', [
   'ngResource',
   'ford.core',
   'ford.login',
-  'ford.analises',
+  'ford.repositorio',
   'ford.visualizacao'
 ]).config(function ($stateProvider) {
   $stateProvider
