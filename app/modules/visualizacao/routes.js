@@ -8,7 +8,7 @@
       url: '/visualizacao',
       views: {
         '': { templateUrl: 'modules/visualizacao/views/main.html' },
-        'navmenu': { templateUrl: 'modules/visualizacao/views/navmenu.html' }
+        'navmenu': { templateUrl: 'modules/visualizacao/views/partials/navmenu.html' }
       }
     });
   });
