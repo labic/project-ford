@@ -1,4 +1,4 @@
-ford.controller('mainRepositorio', function ($scope, $http, settings) {
+ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal) {
   
   //pega as configurações de arquivo
   $scope.config = {
@@ -7,7 +7,8 @@ ford.controller('mainRepositorio', function ($scope, $http, settings) {
 
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
-
+  $scope.selected = undefined;
+  
   //exemplo de arquivos
   $scope.arquivos = [
     { 
@@ -41,6 +42,18 @@ ford.controller('mainRepositorio', function ($scope, $http, settings) {
       img:'img/objetos/arquivo-100.png',
       tipo:'arquivo'
     }];
+
+    $scope.selectObject = function (obj) {
+      if($scope.selected == obj) {
+        $scope.selected = undefined;
+        obj.class = undefined;
+
+      } else {
+        $scope.selected = obj;
+        obj.class = 'active';
+       }
+      console.log(obj.addClass('active'))
+    };
 
   $scope.filter = {
     status: undefined,
