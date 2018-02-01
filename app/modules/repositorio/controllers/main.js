@@ -9,6 +9,11 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
   $scope.selected = undefined;
   
+  //teste de botões com ng-click
+  $scope.cliquei = function(msg) {
+    alert('eae cara! eu sou o '+msg);
+  };
+
   //exemplo de arquivos
   $scope.arquivos = [
     { 
@@ -44,15 +49,10 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
     }];
 
     $scope.selectObject = function (obj) {
-      if($scope.selected == obj) {
+      if($scope.selected == obj)
         $scope.selected = undefined;
-        obj.class = undefined;
-
-      } else {
+        else
         $scope.selected = obj;
-        obj.class = 'active';
-       }
-      console.log(obj.addClass('active'))
     };
 
   $scope.filter = {
