@@ -17,9 +17,9 @@
         <li><ul style="float:right; margin: 0px;">
                 <li ng-click="cliquei('upload')">
                     <img src="img/menu_superior/upload-30.png" class="svg-icon" style="width: 30px; height:30px;"></li>
-                <li ng-if="selected == undefined">
+                <li ng-if="selected.length == 0">
                     <img src="img/menu_superior/baixar-off-30.png" class="svg-icon" style="cursor: default; width: 30px; height:30px;"></li>
-                <li ng-if="selected != undefined" ng-click="cliquei('download')">
+                <li ng-if="selected.length > 0" ng-click="cliquei('download')">
                     <img src="img/menu_superior/baixar-30.png" class="svg-icon" style="width: 30px; height:30px;"></li>
         </ul></li>
     </ul>

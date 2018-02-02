@@ -7,7 +7,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
-  $scope.selected = undefined;
+  $scope.selected = [];
   
   //teste de botões com ng-click
   $scope.cliquei = function(msg) {
@@ -49,10 +49,11 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
     }];
 
     $scope.selectObject = function (obj) {
-      if($scope.selected == obj)
-        $scope.selected = undefined;
+      if($scope.selected.indexOf(obj) < 0)
+        $scope.selected.push(obj);
         else
-        $scope.selected = obj;
+        $scope.selected.splice($scope.selected.indexOf(obj),1);
+        console.log($scope.selected)
     };
 
   $scope.filter = {

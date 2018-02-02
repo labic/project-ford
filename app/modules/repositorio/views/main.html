@@ -4,25 +4,29 @@
     <!-- view para conteúdo do user -->
     <div id="principal" class="str_division">
       <!-- EXEMPLO DE ARQUIVOS -->
-      <div class="card text-center" ng-repeat="obj in arquivos"  ng-click="selectObject(obj)" ng-class="obj == selected? 'active' : 'undefined'">
-          <img src="{{obj.img}}" class="svg-icon" height="100px" width="100px"><br>
+      <div class="card" ng-repeat="obj in arquivos" >
+          <input type="checkbox" ng-click="selectObject(obj)">
+          <img src="{{obj.img}}" class="svg-icon">
           <label>{{obj.Nome}}</label>
       </div>
-        <br>
-        <aside id="" ui-view=""></aside>
       </div>
 
     <!-- view lateral para objeto selecionado -->
     <div id="lateral_direita" class="str_division">
-      <div class="card text-center" style="margin-top:150px;">
-        <div ng-if="selected == undefined">
+      <div class="text-center" style="margin-top:150px;">
+        <div ng-if="selected.length == 0">
           <img src="img/objetos/arquivo-100.png" class="svg-icon" height="100px" width="100px"><br>
           <label>Selecione um arquivo para visualizar as informações.</label>
         </div>
-        <div ng-if="selected != undefined">
-            <img src="{{selected.img}}" class="svg-icon" height="100px" width="100px"><br>
-            <h4>{{selected.Nome}}</h4>
-            <label>Tipo: {{selected.tipo}}</label>
+        <div ng-if="selected.length > 0">
+          <div ng-repeat="item in selected" ng-if="selected.length == 1">
+            <img src="{{item.img}}" class="svg-icon" height="100px" width="100px"><br>
+            <h4>{{item.Nome}}</h4>
+            <label>Tipo: {{item.tipo}}</label>
+          </div>
+          <div ng-if="selected.length > 1">
+            <label>{{selected.length}} itens selecionados</label>
+          </div>
         </div>
       </div>
         <aside id="" ui-view=""></aside>

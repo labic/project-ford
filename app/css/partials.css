@@ -72,23 +72,43 @@
     overflow: auto;
   }
 
-#principal > .card {
+.card {
     width: 180px;
-    min-height: 180px;
-    height: auto;
+    height: 180px;
     display: inline-block;
+    border: 1px;
+    position: relative;
+    border-radius: 5px;
     margin-right: 20px;
     padding-bottom: 20px;
+    text-align: center;
+    
 }
-.card:hover{
+.card:hover {
     cursor: hand;
     background-color: #E6E6E6;
 }
-.active{
-    background-color: #E6E6E6;
-}
 .card img {
-    margin: 30px 40px 15px 40px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+.card label {
+    margin-top:145px;
+}
+.card input {
+    width: 20px;
+    height: 20px;
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+.card:hover >input, .card input:checked {
+    display:inline-block;
 }
 
 #lateral_direita {
