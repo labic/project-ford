@@ -13,25 +13,16 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .menu_sup ul{
-    margin: 5px 20px 0px 20px;
+    margin: 10px 20px 5px 20px;
     -webkit-padding-start: 0px;
 }
 .menu_sup ul li{
     /* float: left; */
-    padding: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
     display: inline;
     box-sizing: border-box;
     text-align: -webkit-match-parent;
-}
-.menu_sup ul li a {
-    padding: 5px 10px 5px 10px;
-    display: inline-block;
-
-    /* visual do link */
-    font-size: 18px;
-    font-weight: bold;
-    color: #575757;
-    text-decoration: none;
+    cursor: pointer;
 }
 .menu_sup ul li a:hover {
     color: #009688;
@@ -81,11 +72,43 @@
     overflow: auto;
   }
 
-#principal > .card {
+.card {
     width: 180px;
     height: 180px;
     display: inline-block;
+    border: 1px;
+    position: relative;
+    border-radius: 5px;
     margin-right: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    
+}
+.card:hover {
+    cursor: hand;
+    background-color: #E6E6E6;
+}
+.card img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+.card label {
+    margin-top:145px;
+}
+.card input {
+    width: 20px;
+    height: 20px;
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+.card:hover >input, .card input:checked {
+    display:inline-block;
 }
 
 #lateral_direita {
