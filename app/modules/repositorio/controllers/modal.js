@@ -7,16 +7,16 @@ ford.controller('modal', function ($scope, $uibModal) {
     "type" : "padrão"
   };
 
-  $scope.open = function (size) {
+  $scope.open = function (size, template) {
 
     var modalInstance = $uibModal.open({
-      templateUrl: 'modules/repositorio/views/partials/item.html',
+      templateUrl: template,
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
         user: function () {
           return $scope.user;
-        }
+        } 
       }
     });
 
@@ -40,5 +40,18 @@ ford.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, user) 
 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
+  };
+
+  // funções para menu superior
+  $scope.newFolder = function(name) {
+    var obj = { 
+      Nome:name,
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+    };
+    console.log("oie")
+    
+    return obj;
+
   };
 });
