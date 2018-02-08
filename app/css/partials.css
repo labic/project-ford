@@ -471,3 +471,8 @@ margin-top: -2px;
     transform: rotate(359deg);
 }
 }
+
+.btn-default {
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}

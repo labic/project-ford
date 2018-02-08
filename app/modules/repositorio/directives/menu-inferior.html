@@ -5,6 +5,7 @@
         <img src="img/menu_inferior/lista-off-30.png" class="svg-icon" height="30px" width="30px">
     </div>
     <div class="col-md-2 text-center">
+<!--
             <div class="form-group">
                 <ui-select ng-model="filter.status" theme="bootstrap">
                 <ui-select-match placeholder="Filtrar por status...">{{$select.selected}}</ui-select-match>
@@ -13,6 +14,10 @@
                 </ui-select-choices>
                 </ui-select>
             </div>
+-->
+		<select style="width: 200px;" ng-model="filter.status" placeholder="Filtrar por status...">
+			<option ng-repeat="item in status | filter: $select.search">{{item}}</option>
+		</select>
     </div>
     <div class="col-md-2 text-center">
             <div class="form-group">
@@ -27,7 +32,7 @@
     <div class="col-md-3">
             <form action="">
                 <input type="checkbox" name="favoritos" ng-model="filter.favorite"> Mostrar somente favoritos
-            </form>
+           	</form>
     </div>
     <div class="col-md-2">
         <input class="" ng-model="filter.name" placeholder="Pesquisar por..."> 
