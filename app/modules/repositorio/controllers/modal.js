@@ -41,4 +41,17 @@ ford.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, user) 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
+
+  // funções para menu superior
+  $scope.newFolder = function(name) {
+    var obj = { 
+      Nome:name,
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+    };
+    console.log("oie")
+    
+    return obj;
+
+  };
 });

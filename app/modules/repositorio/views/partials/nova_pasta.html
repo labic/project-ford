@@ -5,12 +5,8 @@
 <div class="modal-body">
     <p>Use pastas para guardar os arquivos e se organizar.</p>
     <br>
-    <p><input type="text" name="input" placeholder="Digite o nome da pasta..."></p>
-    
-    <p>Use pastas para guardar os arquivos e se organizar.</p>
-    <br>
-    <p><input type="text" name="input" placeholder="Digite o nome da pasta..."></p>
+    <p><input type="text" ng-model="folderName" placeholder="Digite o nome da pasta..."></p>
 </div>
 <div class="text-center">
-    <button class="btn" ng-click="newFolder()">Criar</button>
+    <button class="btn" ng-click="newFolder(folderName)">Criar</button>
 </div>
