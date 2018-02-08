@@ -7,16 +7,16 @@ ford.controller('modal', function ($scope, $uibModal) {
     "type" : "padrão"
   };
 
-  $scope.open = function (size) {
+  $scope.open = function (size, template) {
 
     var modalInstance = $uibModal.open({
-      templateUrl: 'modules/repositorio/views/partials/item.html',
+      templateUrl: template,
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
         user: function () {
           return $scope.user;
-        }
+        } 
       }
     });
 

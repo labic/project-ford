@@ -1,8 +1,8 @@
-<nav class="menu_sup">
+<nav class="menu_sup" ng-controller="modal">
     <ul>
-        <li ng-click="cliquei('nova pasta')">
+        <li ng-click="open('sm','modules/repositorio/views/partials/nova_pasta.html')">
             <img src="img/menu_superior/pasta-30.png" class="svg-icon" height="30px" width="30px"></li>
-        <li ng-click="cliquei('novo arquivo')">
+        <li ng-click="open('sm','modules/repositorio/views/partials/nova_coleta.html')">
                 <img src="img/menu_superior/arquivo-30.png" class="svg-icon" height="30px" width="30px"></li>
         <li ng-click="cliquei('nova estatística')" style="border-right: 1px solid #CCCCCC">
             <img src="img/menu_superior/estatisticasBasicas-30.png" class="svg-icon" height="30px" width="30px"></li>
