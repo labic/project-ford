@@ -1,14 +1,23 @@
 <div class="modal-header">
-    <label class="modal-title">Criar coleta - Twitter</label>
-    <button style="float:right" ng-click="cancel()">X</button>
+	<label class="modal-title">Criar coleta - Twitter</label>
+	<button class="modal-exit" ng-click="cancel()">X</button>
 </div>
 <div class="modal-body">
-    <label>Nome</label>
-    <br>
-    <input type="text" name="input" placeholder="Digite o nome da coleta..."><br>
-    <label>Descrição</label>
-    <br>
-    <input type="text" name="input" placeholder="Descrição... ( 120 caracteres )"><br>
+    <div class="box-input input-effect">
+		<input class="input-text" type="text" placeholder="Digite o nome da coleta">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
+	<div class="box-input input-effect">
+		<input class="input-text" type="text" placeholder="Descrição... ( 120 caracteres )">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
+	<div class="box-input input-effect">
+		<input class="input-text" type="text" placeholder="#politica #futebol #CopaDoMundo...">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
     <label>Tags para classificação</label>
     <br>
     <input type="text" name="input" placeholder="#politica #futebol #CopaDoMundo..."><br>
