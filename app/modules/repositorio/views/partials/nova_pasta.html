@@ -1,12 +1,18 @@
 <div class="modal-header">
-    <label class="modal-title">Criar pasta</label>
-    <button style="float:right" ng-click="cancel()">X</button>
+	<label class="modal-title">Criar pasta</label>
+	<button class="modal-exit" ng-click="cancel()">X</button>
 </div>
 <div class="modal-body">
-    <p>Use pastas para guardar os arquivos e se organizar.</p>
-    <br>
-    <p><input type="text" ng-model="folderName" placeholder="Digite o nome da pasta..."></p>
+	<p>Use pastas para guardar os arquivos e se organizar.</p>
+
+	<div class="box-input input-effect">
+		<input class="input-text" type="text" ng-model="folderName" placeholder="Digite o nome da pasta">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
+
+	<div class="text-center">
+		<button class="btn" ng-click="newFolder(folderName)">Criar</button>
+	</div>
 </div>
-<div class="text-center">
-    <button class="btn" ng-click="newFolder(folderName)">Criar</button>
-</div>
+

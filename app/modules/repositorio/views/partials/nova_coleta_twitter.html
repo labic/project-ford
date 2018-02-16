@@ -1,0 +1,36 @@
+<div class="modal-header">
+	<label class="modal-title">Criar coleta - Twitter</label>
+	<button class="modal-exit" ng-click="cancel()">X</button>
+</div>
+<div class="modal-body">
+    <div class="box-input input-effect">
+		<input class="input-text" type="text" placeholder="Digite o nome da coleta">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
+	<div class="box-input input-effect">
+		<input class="input-text" type="text" placeholder="Descrição... ( 120 caracteres )">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
+	<div class="box-input input-effect">
+		<input class="input-text" type="text" placeholder="#politica #futebol #CopaDoMundo...">
+		<!--		<label>First Name</label>-->
+		<span class="focus-border"></span>
+	</div>
+    <label>Tags para classificação</label>
+    <br>
+    <input type="text" name="input" placeholder="#politica #futebol #CopaDoMundo..."><br>
+    <label>Período</label>
+    <br>
+    <input type="text" name="input" placeholder="Quantos dias anteriores?"><br>
+    <label>Escolha como deseja informar a chave de busca. Subindo um arquivo ou digitando.</label>
+    <br>
+    <input type="text" name="input" placeholder="[\t\n\Lula,Neymar,Russia\f\r]"><br>
+    <button>Suba um arquivo com as definições</button>
+    <hr style="width:80%; heigth:3px solid #000;">
+    <p>+ Opções avançadas</p>
+</div>
+<div class="text-center">
+    <button class="btn" ng-click="newFolder()">Criar</button>
+</div>
