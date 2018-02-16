@@ -143,8 +143,17 @@ ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
       img:'img/objetos/pasta-100.png',
       tipo:'pasta'
     };
+    //inserindo localmente
     $scope.arquivos.push(obj);
-
+    //fazendo request pro servidor
+    // $http({
+    //   url: $scope.url,
+    //   method:'POST',
+    //   params:{Nome:nome,tipo:'pasta'}
+    // })
+    // .then(function (response) {
+    //     console.log(response)
+    // });
     $scope.cancel();
   };
 
@@ -154,7 +163,17 @@ ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
       img:'img/objetos/arquivo-100.png',
       tipo:'arquivo'
     };
+    //inserindo localmente
     $scope.arquivos.push(obj);
+    //fazendo request pro servidor
+    // $http({
+    //   url: $scope.url,
+    //   method:'POST',
+    //   params:{Nome:nome,tipo:'pasta'}
+    // })
+    // .then(function (response) {
+    //     console.log(response)
+    // });
 
     $scope.cancel();
   };
