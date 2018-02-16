@@ -8,7 +8,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
   $scope.selected = [];
-  
+
   //teste de botões com ng-click
   $scope.cliquei = function(msg) {
     alert('eae cara! eu sou o '+msg);
@@ -48,12 +48,28 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
       tipo:'arquivo'
     }];
 
+    $scope.open = function (size, template) {
+  
+      var modalInstance = $uibModal.open({
+        templateUrl: template,
+        controller: 'MenuSup',
+        size: size,
+        resolve: {
+          arquivos: function () {
+            return $scope.arquivos;
+          } 
+        }
+      });
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      });
+    };
+    
     $scope.selectObject = function (obj) {
       if($scope.selected.indexOf(obj) < 0)
         $scope.selected.push(obj);
         else
         $scope.selected.splice($scope.selected.indexOf(obj),1);
-        console.log($scope.selected)
     };
 
   $scope.filter = {
@@ -110,4 +126,36 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
     $("#loading" + divId).hide();
     $("#error" + divId).show();
   }
+});
+
+ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
+
+  $scope.arquivos = arquivos;
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+  // funções para menu superior
+  $scope.newFolder = function(nome) {
+    var obj = { 
+      Nome:nome,
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+    };
+    $scope.arquivos.push(obj);
+
+    $scope.cancel();
+  };
+
+  $scope.newArchive = function(nome,descricao,tags,periodo,chave) {
+    var obj = { 
+      Nome:nome,
+      img:'img/objetos/arquivo-100.png',
+      tipo:'arquivo'
+    };
+    $scope.arquivos.push(obj);
+
+    $scope.cancel();
+  };
 });
