@@ -7,6 +7,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
+  $scope.url = 'https://ford-data-api.herokuapp.com';
   $scope.selected = [];
   
   //teste de botões com ng-click
@@ -14,39 +15,40 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
     alert('eae cara! eu sou o '+msg);
   };
 
-  //exemplo de arquivos
-  $scope.arquivos = [
-    { 
-      Nome:'Eleição',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
+  $scope.open = function (size, template) {
+  
+    var modalInstance = $uibModal.open({
+      templateUrl: template,
+      controller: 'MenuSup',
+      size: size,
+      resolve: {
+        arquivos: function () {
+          return $scope.arquivos;
+        } 
+      }
+    });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    });
+  };
+  
+  $scope.selectObject = function (obj) {
+    if($scope.selected.indexOf(obj) < 0)
+      $scope.selected.push(obj);
+      else
+      $scope.selected.splice($scope.selected.indexOf(obj),1);
+  };
 
-    },
-    {
-      Nome:'Copa do Mundo',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-    },
-    {
-      Nome:'Japão',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-    },
-    {
-      Nome:'Lula',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    },
-    {
-      Nome:'Bolsonaro',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    },
-    {
-      Nome:'Neymar',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    }];
+  //exemplo de get da api de dados
+  $http({
+    url: $scope.url,
+    method:'GET',
+    Origin: $scope.url,
+    params:{}
+  })
+  .then(function (response) {
+      $scope.arquivos = response.data.data;
+  });
 
     $scope.selectObject = function (obj) {
       if($scope.selected.indexOf(obj) < 0)
@@ -110,4 +112,56 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
     $("#loading" + divId).hide();
     $("#error" + divId).show();
   }
+});
+
+
+ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
+
+  $scope.arquivos = arquivos;
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+  // funções para menu superior
+  $scope.newFolder = function(nome) {
+    var obj = { 
+      Nome:nome,
+      img:'img/objetos/pasta-100.png',
+      tipo:'pasta'
+    };
+    //inserindo localmente
+    $scope.arquivos.push(obj);
+    //fazendo request pro servidor
+    // $http({
+    //   url: $scope.url,
+    //   method:'POST',
+    //   params:{Nome:nome,tipo:'pasta'}
+    // })
+    // .then(function (response) {
+    //     console.log(response)
+    // });
+    $scope.cancel();
+  };
+
+  $scope.newArchive = function(nome,descricao,tags,periodo,chave) {
+    var obj = { 
+      Nome:nome,
+      img:'img/objetos/arquivo-100.png',
+      tipo:'arquivo'
+    };
+    //inserindo localmente
+    $scope.arquivos.push(obj);
+    //fazendo request pro servidor
+    // $http({
+    //   url: $scope.url,
+    //   method:'POST',
+    //   params:{Nome:nome,tipo:'pasta'}
+    // })
+    // .then(function (response) {
+    //     console.log(response)
+    // });
+
+    $scope.cancel();
+  };
 });
