@@ -6,8 +6,8 @@
       <!-- EXEMPLO DE ARQUIVOS -->
       <div class="card" ng-repeat="obj in arquivos" >
           <input type="checkbox" ng-click="selectObject(obj)">
-          <img src="{{obj.img}}" class="svg-icon">
-          <label>{{obj.Nome}}</label>
+          <img ng-init="source = (obj.type == 'directory'?'img/objetos/pasta-100.png':'img/objetos/arquivo-100.png')" src="{{source}}" class="svg-icon">
+          <label>{{obj.name}}</label>
       </div>
       </div>
 

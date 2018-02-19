@@ -7,6 +7,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
+  $scope.url = 'https://ford-data-api.herokuapp.com';
   $scope.selected = [];
   
   //teste de botões com ng-click
