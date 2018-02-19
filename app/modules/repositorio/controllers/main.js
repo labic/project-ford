@@ -7,6 +7,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 
   $scope.status = ['Terminado','Em andamento','Parado','Pausado'];
   $scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
+  $scope.url = 'https://ford-data-api.herokuapp.com';
   $scope.selected = [];
 
   //teste de botões com ng-click
@@ -14,39 +15,16 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
     alert('eae cara! eu sou o '+msg);
   };
 
-  //exemplo de arquivos
-  $scope.arquivos = [
-    { 
-      Nome:'Eleição',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-
-    },
-    {
-      Nome:'Copa do Mundo',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-    },
-    {
-      Nome:'Japão',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-    },
-    {
-      Nome:'Lula',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    },
-    {
-      Nome:'Bolsonaro',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    },
-    {
-      Nome:'Neymar',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    }];
+  //exemplo de get da api de dados
+  $http({
+    url: $scope.url,
+    method:'GET',
+    Origin: $scope.url,
+    params:{}
+  })
+  .then(function (response) {
+      $scope.arquivos = response.data.data;
+  });
 
     $scope.open = function (size, template) {
   
