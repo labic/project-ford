@@ -55,7 +55,6 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
         $scope.selected.push(obj);
         else
         $scope.selected.splice($scope.selected.indexOf(obj),1);
-        console.log($scope.selected)
     };
 
   $scope.filter = {

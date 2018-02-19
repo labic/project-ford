@@ -23,9 +23,11 @@
           <div ng-repeat="item in selected" ng-if="selected.length == 1">
             <div ng-init="tipo_arq = (item.type == 'directory'?'img/objetos/pasta-100.png':'img/objetos/arquivo-100.png')">
               <img src="{{tipo_arq}}" class="svg-icon" height="100px" width="100px"><br>
-            <h4>{{item.name}}</h4>
+            <h4><b>{{item.name}}</b></h4><br>
           </div>
-            <label>Tipo: {{item.type}}</label>
+            <label>{{item.described}}</label><br>
+            <label>Criado em: {{item.date_created_at}}</label><br>
+            <label>Modificado em: {{item.date_last_modify}}</label>
           </div>
           <!-- se temos vários objetos para analise -->
           <div ng-if="selected.length > 1">
