@@ -38,39 +38,16 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
       $scope.selected.splice($scope.selected.indexOf(obj),1);
   };
 
-  //exemplo de arquivos
-  $scope.arquivos = [
-    { 
-      Nome:'Eleição',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-
-    },
-    {
-      Nome:'Copa do Mundo',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-    },
-    {
-      Nome:'Japão',
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
-    },
-    {
-      Nome:'Lula',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    },
-    {
-      Nome:'Bolsonaro',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    },
-    {
-      Nome:'Neymar',
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
-    }];
+  //exemplo de get da api de dados
+  $http({
+    url: $scope.url,
+    method:'GET',
+    Origin: $scope.url,
+    params:{}
+  })
+  .then(function (response) {
+      $scope.arquivos = response.data.data;
+  });
 
     $scope.selectObject = function (obj) {
       if($scope.selected.indexOf(obj) < 0)
