@@ -115,7 +115,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 });
 
 
-ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
+ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos, $uibModal) {
 
   $scope.arquivos = arquivos;
 
@@ -142,6 +142,42 @@ ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
     //     console.log(response)
     // });
     $scope.cancel();
+  };
+	
+	$scope.open = function (size, template) {
+
+    var modalInstance = $uibModal.open({
+      templateUrl: template,
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        user: function () {
+          return $scope.user;
+        } 
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    });
+  };
+	
+	$scope.open = function (size, template) {
+
+    var modalInstance = $uibModal.open({
+      templateUrl: template,
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        user: function () {
+          return $scope.user;
+        } 
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    });
   };
 
   $scope.newArchive = function(nome,descricao,tags,periodo,chave) {

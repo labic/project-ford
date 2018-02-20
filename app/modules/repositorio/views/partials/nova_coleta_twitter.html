@@ -3,34 +3,39 @@
 	<button class="modal-exit" ng-click="cancel()">X</button>
 </div>
 <div class="modal-body">
-    <div class="box-input input-effect">
+	<div class="box-input input-effect">
+		<label class="box-title">Nome</label>
 		<input class="input-text" type="text" placeholder="Digite o nome da coleta">
 		<!--		<label>First Name</label>-->
 		<span class="focus-border"></span>
 	</div>
 	<div class="box-input input-effect">
+		<label class="box-title">Descrição</label>
 		<input class="input-text" type="text" placeholder="Descrição... ( 120 caracteres )">
 		<!--		<label>First Name</label>-->
 		<span class="focus-border"></span>
 	</div>
 	<div class="box-input input-effect">
+		<label class="box-title">Tags para classifcação</label>
 		<input class="input-text" type="text" placeholder="#politica #futebol #CopaDoMundo...">
 		<!--		<label>First Name</label>-->
 		<span class="focus-border"></span>
 	</div>
-    <label>Tags para classificação</label>
-    <br>
-    <input type="text" name="input" placeholder="#politica #futebol #CopaDoMundo..."><br>
-    <label>Período</label>
-    <br>
-    <input type="text" name="input" placeholder="Quantos dias anteriores?"><br>
-    <label>Escolha como deseja informar a chave de busca. Subindo um arquivo ou digitando.</label>
-    <br>
-    <input type="text" name="input" placeholder="[\t\n\Lula,Neymar,Russia\f\r]"><br>
-    <button>Suba um arquivo com as definições</button>
-    <hr style="width:80%; heigth:3px solid #000;">
-    <p>+ Opções avançadas</p>
+	<label>Tags para classificação</label>
+	<br>
+	<input type="text" name="input" placeholder="#politica #futebol #CopaDoMundo..."><br>
+	<label>Período</label>
+	<br>
+	<input type="text" name="input" placeholder="Quantos dias anteriores?"><br>
+	<label>Escolha como deseja informar a chave de busca. Subindo um arquivo ou digitando.</label>
+	<br>
+	<input type="text" name="input" placeholder="[\t\n\Lula,Neymar,Russia\f\r]"><br>
+	<button>Suba um arquivo com as definições</button>
+	<hr style="width:80%; heigth:3px solid #000;">
+	<button ng-click="cancel(); open('sm','modules/repositorio/views/partials/nova_coleta_twitter.html')">
+		<p>+ Opções avançadas</p>
+	</button>
 </div>
 <div class="text-center">
-    <button class="btn" ng-click="newFolder()">Criar</button>
+	<button class="btn" ng-click="newFolder()">Criar</button>
 </div>
