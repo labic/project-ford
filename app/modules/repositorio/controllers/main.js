@@ -48,14 +48,38 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
   })
   .then(function (response) {
       $scope.arquivos = response.data.data;
+      $scope.sortArquivos();
   });
+
+  $scope.sortArquivos = function(){
+    $scope.arquivos.sort(function(a,b){
+      //mesmo tipo
+      if (a.type == b.type) {
+        return a.name.localeCompare(b.name);
+      }
+      //tipos diferentes
+      else {
+        //se um dos dois eh diretorio
+        if (a.type == 'directory') {
+          return -1;
+        } else if (b.type == 'directory') {
+          return 1;
+        }
+        //se um dos dois eh arquivo pronto
+        if (a.type == 'file') {
+          return -1;
+        } else if (b.type == 'file') {
+          return 1;
+        }
+      }
+    });
+  };
 
     $scope.selectObject = function (obj) {
       if($scope.selected.indexOf(obj) < 0)
         $scope.selected.push(obj);
         else
         $scope.selected.splice($scope.selected.indexOf(obj),1);
-        console.log($scope.selected)
     };
 
   $scope.filter = {
@@ -118,6 +142,29 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
 
   $scope.arquivos = arquivos;
+  $scope.sortArquivos = function(){
+    $scope.arquivos.sort(function(a,b){
+      //mesmo tipo
+      if (a.type == b.type) {
+        return a.name.localeCompare(b.name);
+      }
+      //tipos diferentes
+      else {
+        //se um dos dois eh diretorio
+        if (a.type == 'directory') {
+          return -1;
+        } else if (b.type == 'directory') {
+          return 1;
+        }
+        //se um dos dois eh arquivo pronto
+        if (a.type == 'file') {
+          return -1;
+        } else if (b.type == 'file') {
+          return 1;
+        }
+      }
+    });
+  };
 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
@@ -126,12 +173,15 @@ ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
   // funções para menu superior
   $scope.newFolder = function(nome) {
     var obj = { 
-      Nome:nome,
-      img:'img/objetos/pasta-100.png',
-      tipo:'pasta'
+      name:nome,
+      described:'',
+      date_created_at: (new Date()),
+      date_last_modify:(new Date()),
+      type:'directory'
     };
     //inserindo localmente
     $scope.arquivos.push(obj);
+    $scope.sortArquivos();
     //fazendo request pro servidor
     // $http({
     //   url: $scope.url,
@@ -146,12 +196,15 @@ ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos) {
 
   $scope.newArchive = function(nome,descricao,tags,periodo,chave) {
     var obj = { 
-      Nome:nome,
-      img:'img/objetos/arquivo-100.png',
-      tipo:'arquivo'
+      name:nome,
+      described:'',
+      date_created_at: (new Date()),
+      date_last_modify:(new Date()),
+      type:'file'
     };
     //inserindo localmente
     $scope.arquivos.push(obj);
+    $scope.sortArquivos();
     //fazendo request pro servidor
     // $http({
     //   url: $scope.url,
