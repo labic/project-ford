@@ -195,36 +195,17 @@ ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos, $uibMo
   };
 	
 	$scope.open = function (size, template) {
-
+  
     var modalInstance = $uibModal.open({
       templateUrl: template,
-      controller: 'ModalInstanceCtrl',
+      controller: 'MenuSup',
       size: size,
       resolve: {
-        user: function () {
-          return $scope.user;
+        arquivos: function () {
+          return $scope.arquivos;
         } 
       }
     });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    });
-  };
-	
-	$scope.open = function (size, template) {
-
-    var modalInstance = $uibModal.open({
-      templateUrl: template,
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        user: function () {
-          return $scope.user;
-        } 
-      }
-    });
-
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     });
