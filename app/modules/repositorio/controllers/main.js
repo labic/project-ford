@@ -38,18 +38,27 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 		else
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
+	$scope.totalSelecionado = function () {
+		var total = 0;
+		for (var i = 0; i < $scope.selected.length; i++) {
+				total = total + $scope.selected[i].stats.space_disk;
+				}
+		return total;
+	};
 
 	//exemplo de get da api de dados
-	$http({
-		url: $scope.url,
-		method:'GET',
-		Origin: $scope.url,
-		params:{}
-	})
-		.then(function (response) {
-		$scope.arquivos = response.data.data;
-		$scope.sortArquivos();
-	});
+	$scope.get = function(url) { 
+		$http({
+			url: $scope.url,
+			method:'GET',
+			Origin: url,
+			params:{}
+		})
+			.then(function (response) {
+			$scope.arquivos = response.data.data;
+			$scope.sortArquivos();
+		});
+	};
 
 	$scope.sortArquivos = function(){
 		$scope.arquivos.sort(function(a,b){
