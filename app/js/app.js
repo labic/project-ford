@@ -1,5 +1,6 @@
 var ford = angular.module('ford', [
   'ui.router',
+  'ng-context-menu',
   'ui.bootstrap',
   'ui.select',
   'ngResource',
