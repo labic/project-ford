@@ -1,0 +1,63 @@
+<div class="modal-header">
+	<label class="modal-title">Criar coleta - Twitter</label>
+	<button class="modal-exit" ng-click="cancel()">X</button>
+</div>
+
+<div class="clear">
+	<div class="middle-form modal-body">	
+		<div class="box-input input-effect">
+			<label class="box-title">Nome</label>
+			<input class="input-text" type="text" placeholder="Digite o nome da coleta">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Descrição</label>
+			<input class="input-text" type="text" maxlength="120" placeholder="Descrição... ( 120 caracteres )">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Tags para classifcação</label>
+			<input class="input-text" type="text" placeholder="#politica, #futebol, #CopaDoMundo...">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Período</label>
+			<input class="input-text" type="number" min="1" max="31" placeholder="Quantos dias anteriores?">
+			<span class="focus-border"></span>
+		</div>
+	</div>
+
+	<div class="middle-form modal-body">	
+		<div class="box-input input-effect">
+			<label class="box-title">Escolha como deseja informar a chave de busca. Subindo um arquivo ou digitando.</label>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Inserindo chave de busca</label>
+			<input class="input-text" type="text" placeholder="[\t\n\Lula,Neymar,Russia\f\r]">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Escolha um arquivo</label>
+
+			<label for="input15"></label>
+			<input type="file" id="input15">
+		</div>
+
+		<button class="button-advanced" ng-click="open('lg','modules/repositorio/views/partials/nova_coleta_twitter_avançado.html')">
+			<p>Opções avançadas</p>
+		</button>
+	</div>
+</div>
+
+<div class="box-button">
+	<button class="btn button-modal" ng-click="newFolder()">Criar</button>
+</div>
+
+<script type="text/javascript">
+	$('#input15').jfilestyle({buttonBefore: true, text: "Selecionar", placeholder: "ArquivoSelecionado.xx"});
+</script>

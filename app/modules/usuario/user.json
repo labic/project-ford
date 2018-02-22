@@ -1,0 +1,54 @@
+{
+    "user": {
+        "id": "10151510158661", // identificação única
+        "name": "Andrei Bastos", //nome do usuário para saudação
+        "roles": [
+            "admin"
+        ], //tipo de cargo //admin, comum, especial 
+        "email": "andreibastos@outlook.com", //email do usuário
+        "photo":"http:swss",        
+        "country": "Brasil", //País do usuário
+        "city": "Vitória", //Cidade do usuário
+        "settings": [
+            {
+                "type": "ford", // tipo da configuração
+                "data": { //conteudo
+                    "language": "portuguese", //idioma padrão
+                    "sites": [ //redes sociais
+                        {
+                            "name": "facebook",
+                            "API_KEY": "777113912348934", //default ford
+                            "API_SECRET": "78c8836g1e2099f23a970f3ad441ba1v", //default ford
+                            "TOKEN_KEY": "CAALCxZBi8MAUBACRzXRc7oQJCh1mGVk1JbTvzKKp4HheG3yIC4zzoJJyaH4g8FJkpkDUCVXLem2FMOkfqRswM9G8p7vlVZA8f1\\ZAZB8S3hFyIZAkIkGRMRsir5NcxCwAGyuSRqAcWyZAuZCIZABS8Q7GjntULjhqzZAMHcBCghHPnlbzmbjl154JLZB8Cz45Uahikhif9R13m556WmFTi5UTZBU",
+                            "usermail": "andreibastos@facebook.com",
+                            "password": "senhafacebook"
+                        },
+                        {
+                            "name": "twitter",
+                            "API_KEY": "kFENc4W6PhxMETi7jXDVq", //default ford
+                            "API_SECRET": "32EYkehJiUnsEMwyGbeGxVQfA0J8eZp1tCzEbeE89", //default ford
+                            "TOKEN_KEY": "240482805-XcB2JFWyD0RH5jW9d5MKOMfnBhWXyb9XtSdPItOW", //acess by login
+                            "TOKEN_SECRET": "BwShM54AB9OG6siQ4GVcP7msh2uMzcLl8OUpIie2To" //acess by login                    
+                        },
+                        {
+                            "name": "youtube"
+                        },
+                        {
+                            "name": "instagram"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "system",
+                "data": {
+                    "basepath": "/ford/",
+                    "server": "server1",
+                    "farm": "1",
+                    "timezone":"Brazil/SP"
+                }
+            }
+        ]
+    }
+
+}
