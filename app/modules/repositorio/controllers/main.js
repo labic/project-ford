@@ -9,6 +9,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 	$scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
 	$scope.url = 'https://ford-data-api.herokuapp.com';
 	$scope.selected = [];
+	$scope.endereco = [];
 
 	//teste de botões com ng-click
 	$scope.cliquei = function(msg) {
@@ -47,16 +48,24 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 	};
 
 	//exemplo de get da api de dados
-	$scope.get = function(url) { 
+	$scope.get = function(id, path) {
+		//verifica se está voltando no diretório
+		for(var i = 0; i < $scope.endereco.length; i++) {
+			if ($scope.endereco[i].name == id) {
+				$scope.endereco.splice(i,$scope.endereco.length-i);
+				break;
+			}};
+
 		$http({
-			url: $scope.url,
+			url: path,		//manter $scope.url da api de dados
 			method:'GET',
-			Origin: url,
-			params:{}
+			Origin: path,
+			params:{}		//colocar o parametro de qual user e id de pasta ou arquivo solicitar
 		})
 			.then(function (response) {
 			$scope.arquivos = response.data.data;
 			$scope.sortArquivos();
+			$scope.endereco.push({name:id,url:path})
 		});
 	};
 
