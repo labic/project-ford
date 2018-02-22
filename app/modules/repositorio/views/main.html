@@ -5,7 +5,7 @@
     <div id="principal" class="str_division" ng-init="get('dashboard',url)">
       <label ng-repeat="path in endereco" ng-click="get(path.name,path.url)">{{path.name}} / </label><br>
       <!-- EXEMPLO DE ARQUIVOS -->
-      <div class="card" ng-repeat="obj in arquivos">
+      <div class="card" ng-repeat="obj in arquivos" has-context-menu target="repRightMenu" locals="obj">
           <input type="checkbox" ng-click="selectObject(obj)">
           <div ng-switch="obj.type">
               <img ng-switch-when="directory" src="img/objetos/pasta-100.png" class="svg-icon" ng-Dblclick="get(obj.name,'https://ford-data-api.herokuapp.com/subindex')">
