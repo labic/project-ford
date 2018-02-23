@@ -13,24 +13,30 @@
 
 		<div class="box-input input-effect">
 			<label class="box-title">Descrição</label>
-			<input class="input-text" type="text" placeholder="Descrição... ( 120 caracteres )">
+			<input class="input-text" type="text" maxlength="120" placeholder="Descrição... ( 120 caracteres )">
 			<span class="focus-border"></span>
 		</div>
 
 		<div class="box-input input-effect">
 			<label class="box-title">Período inicial</label>
-			<input class="input-text datepicker" type="text" placeholder="">
+			<input id="from" class="input-text" type="text" placeholder="Data de início de coleta">
 			<span class="focus-border"></span>
 		</div>
 
 		<div class="box-input input-effect">
 			<label class="box-title">Período final</label>
-			<input class="input-text datepicker" type="text" placeholder="Quantos dias anteriores?">
+			<input id="to" class="input-text" type="text" placeholder="Data de finalização da coleta">
 			<span class="focus-border"></span>
 		</div>
 	</div>
 
-	<div class="middle-form modal-body">	
+	<div class="middle-form modal-body">
+		<div class="box-input input-effect">
+			<label class="box-title">Memória máxima</label>
+			<input class="input-text" type="text" placeholder="1024" value="1024">
+			<span class="focus-border"></span>
+		</div>
+		
 		<div class="box-input input-effect">
 			<label class="box-title">Escolha como deseja informar a chave de busca. Subindo um arquivo ou digitando.</label>
 		</div>
@@ -48,9 +54,11 @@
 			<input type="file" id="input15">
 		</div>
 
+<!--
 		<button class="button-advanced" ng-click="open('mm','modules/repositorio/views/partials/nova_coleta_twitter_avançado.html')">
 			<p>Opções avançadas</p>
 		</button>
+-->
 	</div>
 </div>
 
@@ -59,11 +67,39 @@
 </div>
 
 <script type="text/javascript">
-	// $( function() {
-	// 	$('.datepicker').datepicker({
-	// 		startDate: '-3d'
-	// 	});
-	// } );
+	$( function() {
+		var dateFormat = "dd/mm/yy",
+			from = $( "#from" )
+		.datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 1,
+			dateFormat: "dd/mm/yy"
+		})
+		.on( "change", function() {
+			to.datepicker( "option", "minDate", getDate( this ) );
+		}),
+			to = $( "#to" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: true,
+				numberOfMonths: 1,
+				dateFormat: "dd/mm/yy"
+			})
+		.on( "change", function() {
+			from.datepicker( "option", "maxDate", getDate( this ) );
+		});
+
+		function getDate( element ) {
+			var date;
+			try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			} catch( error ) {
+				date = null;
+			}
+
+			return date;
+		}
+	} );
 
 	$('#input15').jfilestyle({buttonBefore: true, text: "Selecionar", placeholder: "ArquivoSelecionado.xx"});
 </script>
