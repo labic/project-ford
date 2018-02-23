@@ -40,7 +40,7 @@
     "lodash": "~4.6.1",
     "SVG-Loaders": "https://github.com/SamHerbert/SVG-Loaders.git#1.0.2",
     "metrics-graphics": "^2.11.0",
-    "angular-context-menu": "^0.1.2"
+    "angular-right-click": "^0.1.1"
   },
   "overrides": {
     "angular": {
