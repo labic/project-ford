@@ -1,7 +1,7 @@
 var ford = angular.module('ford', [
   'ui.router',
-  'ng-context-menu',
   'ui.bootstrap',
+  'shContextMenu',
   'ui.select',
   'ngResource',
   'ford.core',

@@ -16,6 +16,42 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 		alert('eae cara! eu sou o '+msg);
 	};
 
+	$scope.menuOptions = 
+	[
+		{
+			label: 'Save',      // menu option label
+			onClick: menuSave   // on click handler
+		},
+		{
+			label: 'Edit',
+			onClick: menuEdit,
+			disabled: function (dataContext) {
+				return dataContext.name === "item 2";
+			}
+		},
+		{
+			label: 'Details',
+			onClick: menuEdit
+		},
+		{
+			divider: true       // will render a divider
+		},
+		{
+			label: 'Remove',
+			onClick: menuRemove
+		}
+	];
+
+	function menuSave($event) {
+		console.log($event);
+	}
+	function menuRemove($event) {
+		console.log($event);
+	}
+	function menuEdit($event) {
+		console.log($event);
+	}
+
 	$scope.open = function (size, template) {
 
 		var modalInstance = $uibModal.open({

@@ -2,12 +2,12 @@
   <menu-superior></menu-superior>
   
     <!-- view para conteúdo do user -->
-    <div id="principal" class="str_division" ng-init="get('dashboard',url)">
+    <div id="principal" class="str_division" ng-init="get('dashboard',url)" sh-context-menu menu-options="menuOptions">
       <label ng-repeat="path in endereco" ng-click="get(path.name,path.url)">{{path.name}} / </label><br>
       <!-- EXEMPLO DE ARQUIVOS -->
-      <div class="card" ng-repeat="obj in arquivos" has-context-menu target="repRightMenu" locals="obj">
+      <div class="card" ng-repeat="obj in arquivos">
           <input type="checkbox" ng-click="selectObject(obj)">
-          <div ng-switch="obj.type">
+          <div ng-switch="obj.type" sh-context-menu menu-options="menuOptions" context-data="obj">
               <img ng-switch-when="directory" src="img/objetos/pasta-100.png" class="svg-icon" ng-Dblclick="get(obj.name,'https://ford-data-api.herokuapp.com/subindex')">
               <img ng-switch-when="file" src="img/objetos/arquivo-100.png" class="svg-icon">
               <img ng-switch-when="process" src="img/objetos/arquivo-twitter.png" class="svg-icon">
