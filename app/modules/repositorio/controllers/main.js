@@ -26,7 +26,7 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 			label: 'Edit',
 			onClick: menuEdit,
 			disabled: function (dataContext) {
-				return dataContext.name === "item 2";
+				return "item 2";
 			}
 		},
 		{
@@ -136,6 +136,34 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
 
+	//menu da dashboard
+	$scope.menuDashboard = 
+	[
+		{
+			label: 'Nova pasta',      // menu option label
+			onClick: function ($event) {
+			$scope.open('sm','modules/repositorio/views/partials/nova_pasta.html')}   // on click handler
+		},
+		{
+			label: 'Nova coleta',
+			onClick: function ($event) {
+				$scope.open('sm','modules/repositorio/views/partials/nova_coleta_escolha.html')}
+		},
+		{
+			label: 'Nova estratégia',
+			onClick: function ($event) {
+				$scope.open('sm','modules/repositorio/views/partials/nova_visualizacao.html')}
+		},
+		// {
+		// 	divider: true       // will render a divider
+		// },
+		{
+			label: 'Nova estatística',	//falta atualizar com o layout
+			onClick: function ($event) {
+				$scope.open('sm','modules/repositorio/views/partials/nova_visualizacao.html')}
+		}
+	];
+
 	$scope.filter = {
 		status: undefined,
 		ordem: 'Nome',
@@ -145,7 +173,6 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 
 	// Watch assiste a todos os filtros presentes na página esperando alguma alteração.
 	$scope.$watch('filter', function (newFilter, oldFilter) {
-		console.log(oldFilter);
 
 		$(".repositorio").scrollTop("slow");
 		$scope.countpage = 0;
@@ -162,8 +189,6 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 				//$scope.loadItems(newFilter.status, newFilter.ordem, newFilter.name);
 			}
 		}
-
-		console.log(newFilter);
 
 	}, true);
 

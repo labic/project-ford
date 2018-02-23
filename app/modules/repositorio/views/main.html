@@ -2,7 +2,7 @@
   <menu-superior></menu-superior>
   
     <!-- view para conteúdo do user -->
-    <div id="principal" class="str_division" ng-init="get('dashboard',url)" sh-context-menu menu-options="menuOptions">
+    <div id="principal" class="str_division" ng-init="get('dashboard',url)" sh-context-menu menu-options="menuDashboard" context-data="mainRepositorio">
       <label ng-repeat="path in endereco" ng-click="get(path.name,path.url)">{{path.name}} / </label><br>
       <!-- EXEMPLO DE ARQUIVOS -->
       <div class="card" ng-repeat="obj in arquivos">
