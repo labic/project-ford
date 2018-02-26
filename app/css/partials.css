@@ -5,7 +5,7 @@
 	height: 50px;
 	width: 100%;
 	position: fixed;
-	z-index: 1;
+	z-index: 0;
 	display: inline;
 	top: 80px;
 	color: #000;
@@ -489,8 +489,8 @@ body > .ui-select-bootstrap.open {
 }
 
 .modal-body p{
-	font-size: 12px;
-	margin: 10px 0px;
+/*	font-size: 12px;*/
+/*	margin: 10px 0px;*/
 }
 
 .modal-header{
@@ -748,7 +748,6 @@ select {
 	-moz-appearance: none;
 }
 
-
 /* arrows */
 
 select.classic {
@@ -783,3 +782,144 @@ select.classic:focus {
 	background-repeat: no-repeat;
 	outline: 0;
 }
+
+/* MENU DROPDOWN */
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    height: 30px;
+	width: 30px;
+    cursor: pointer;
+	margin: 5px 0px 5px 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right:0;
+	border: 1px solid #ccc;
+	margin:0;
+	padding: 0;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+	background: transparent;
+	font-size: 12px;
+}
+
+.dropdown-content button:hover {
+	background-color: #f1f1f1;
+	color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.dropdown-content:after, .dropdown-content:before {
+	bottom: 100%;
+	left: calc(100% - 15px);
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.dropdown-content-fade{
+	padding-top: 10px;
+}
+
+.dropdown-content:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #fff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.dropdown-content:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #fff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+/*******************/
+
+.title-section{
+	font-size: 16px;
+	margin: 0;
+}
+
+.section-modal{
+ background: red;
+}
+
+.box-estatistica{
+	width: 33%;
+/*	background: green;*/
+	float: left;
+	padding: 5px;
+}
+
+.box-estatistica-number{
+	font-size: 14px;
+	width: 100%;
+	text-align: center;
+	margin: 0px;
+}
+
+.box-estatistica-text{
+	font-size: 12px;
+	width: 100%;
+	text-align: center;
+	margin: 0px;
+}
+
+.box-vinculo{
+	float:left;
+	margin-right: 5px;
+}
+
+.box-vinculo button{
+	float:left;
+	width: 35px;
+	border: 0;
+	padding: 0;
+}
+
+.box-vinculo p{
+	float:left;
+	margin: 5px;
+	font-size: 12px;
+}
+
+.box-input-editar{
+	font-size: 14px;
+	color: #537EA3;
+	cursor: pointer;
+}
+
+/*******************/
