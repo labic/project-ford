@@ -9,14 +9,9 @@ body {
 /* navbar */
 .navbar-topo {
     background-color: #537EA3;
-    border: none;
-    height: 80px;
-    position: relative;
-    margin-bottom: 20px;
-    display: block;
-    box-sizing: border-box;
+    height: 60px;
     color: #FFFFFF;
-
+	padding: 10px;
 }
 .navbar-topo ul {
     float: right;
@@ -36,10 +31,7 @@ body {
 .brand {
     float: left;
     display: block;
-    padding: 10px 20px;
-    margin-left: -20px;
-    font-size: 40px;
-    font-weight: 200;
+    font-size: 30px;
 }
 .dropdown-menu {
     left: auto;
