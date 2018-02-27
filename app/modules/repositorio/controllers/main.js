@@ -9,11 +9,48 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 	$scope.ordem = ['Nome','Tipo','Tamanho crescente','Tamanho decrescente','Mais recente'];
 	$scope.url = 'https://ford-data-api.herokuapp.com';
 	$scope.selected = [];
+	$scope.endereco = [];
 
 	//teste de botões com ng-click
 	$scope.cliquei = function(msg) {
 		alert('eae cara! eu sou o '+msg);
 	};
+
+	$scope.menuOptions = 
+	[
+		{
+			label: 'Save',      // menu option label
+			onClick: menuSave   // on click handler
+		},
+		{
+			label: 'Edit',
+			onClick: menuEdit,
+			disabled: function (dataContext) {
+				return "item 2";
+			}
+		},
+		{
+			label: 'Details',
+			onClick: menuEdit
+		},
+		{
+			divider: true       // will render a divider
+		},
+		{
+			label: 'Remove',
+			onClick: menuRemove
+		}
+	];
+
+	function menuSave($event) {
+		console.log($event);
+	}
+	function menuRemove($event) {
+		console.log($event);
+	}
+	function menuEdit($event) {
+		console.log($event);
+	}
 
 	$scope.open = function (size, template) {
 
@@ -38,18 +75,35 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 		else
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
+	$scope.totalSelecionado = function () {
+		var total = 0;
+		for (var i = 0; i < $scope.selected.length; i++) {
+				total = total + $scope.selected[i].stats.space_disk;
+				}
+		return total;
+	};
 
 	//exemplo de get da api de dados
-	$http({
-		url: $scope.url,
-		method:'GET',
-		Origin: $scope.url,
-		params:{}
-	})
-		.then(function (response) {
-		$scope.arquivos = response.data.data;
-		$scope.sortArquivos();
-	});
+	$scope.get = function(id, path) {
+		//verifica se está voltando no diretório
+		for(var i = 0; i < $scope.endereco.length; i++) {
+			if ($scope.endereco[i].name == id) {
+				$scope.endereco.splice(i,$scope.endereco.length-i);
+				break;
+			}};
+
+		$http({
+			url: path,		//manter $scope.url da api de dados
+			method:'GET',
+			Origin: path,
+			params:{}		//colocar o parametro de qual user e id de pasta ou arquivo solicitar
+		})
+			.then(function (response) {
+			$scope.arquivos = response.data.data;
+			$scope.sortArquivos();
+			$scope.endereco.push({name:id,url:path})
+		});
+	};
 
 	$scope.sortArquivos = function(){
 		$scope.arquivos.sort(function(a,b){
@@ -82,6 +136,34 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
 
+	//menu da dashboard
+	$scope.menuDashboard = 
+	[
+		{
+			label: 'Nova pasta',      // menu option label
+			onClick: function ($event) {
+			$scope.open('sm','modules/repositorio/views/partials/nova_pasta.html')}   // on click handler
+		},
+		{
+			label: 'Nova coleta',
+			onClick: function ($event) {
+				$scope.open('sm','modules/repositorio/views/partials/nova_coleta_escolha.html')}
+		},
+		{
+			label: 'Nova estratégia',
+			onClick: function ($event) {
+				$scope.open('sm','modules/repositorio/views/partials/nova_visualizacao.html')}
+		},
+		// {
+		// 	divider: true       // will render a divider
+		// },
+		{
+			label: 'Nova estatística',	//falta atualizar com o layout
+			onClick: function ($event) {
+				$scope.open('sm','modules/repositorio/views/partials/nova_visualizacao.html')}
+		}
+	];
+
 	$scope.filter = {
 		status: undefined,
 		ordem: 'Nome',
@@ -91,7 +173,6 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 
 	// Watch assiste a todos os filtros presentes na página esperando alguma alteração.
 	$scope.$watch('filter', function (newFilter, oldFilter) {
-		console.log(oldFilter);
 
 		$(".repositorio").scrollTop("slow");
 		$scope.countpage = 0;
@@ -108,8 +189,6 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 				//$scope.loadItems(newFilter.status, newFilter.ordem, newFilter.name);
 			}
 		}
-
-		console.log(newFilter);
 
 	}, true);
 
