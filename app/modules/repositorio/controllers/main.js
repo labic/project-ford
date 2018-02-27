@@ -1,4 +1,4 @@
-ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal) {
+ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, settings, $uibModal) {
 
 	//pega as configurações de arquivo
 	$scope.config = {
@@ -10,6 +10,11 @@ ford.controller('mainRepositorio', function ($scope, $http, settings, $uibModal)
 	$scope.url = 'https://ford-data-api.herokuapp.com';
 	$scope.selected = [];
 	$scope.endereco = [];
+
+	this.logout = function __logout() {
+		$auth.logout();
+		$state.go('login');
+		};
 
 	//teste de botões com ng-click
 	$scope.cliquei = function(msg) {

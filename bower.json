@@ -40,7 +40,10 @@
     "lodash": "~4.6.1",
     "SVG-Loaders": "https://github.com/SamHerbert/SVG-Loaders.git#1.0.2",
     "metrics-graphics": "^2.11.0",
-    "angular-right-click": "^0.1.1"
+    "satellizer": "^0.15.5",
+    "auth0-lock": "11.2.3",
+    "angular-lock": "2.0.3",
+    "angular-jwt": "0.1.9"
   },
   "overrides": {
     "angular": {
@@ -173,6 +176,10 @@
   "resolutions": {
     "animate.css": "^3.5.1",
     "angular": "^1.5.0",
-    "d3": ">=4"
+    "d3": ">=4",
+    "auth0-lock": "11.2.3",
+    "angular-lock": "2.0.3",
+    "angular-jwt": "0.1.9",
+    "satellizer":"0.15.5"
   }
 }
