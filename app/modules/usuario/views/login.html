@@ -12,18 +12,22 @@
 				<div class="form-group">
 					<label class="sr-only" for="exampleInputEmail2">E-mail</label>
 					<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Endereço de e-mail" required>
+					<input type="email" class="form-control" placeholder="Endereço de e-mail" ng-model="login.user.email" required>
 				</div>
 				<div class="form-group">
 					<label class="sr-only" for="exampleInputPassword2">Senha</label>
 					<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Senha" required>
-					<div class="help-block text-right"><a href=""><font color="blue">Esqueceu a senha ?</font></a></div>
+						<div class="help-block text-right"><a href=""><font color="blue">Esqueceu a senha ?</font></a></div>
+					<input type="password" class="form-control" ng-model="login.user.password"  placeholder="Senha" required>
+						<div class="help-block text-right"><a href=""><font color="blue">Esqueceu a senha ?</font></a></div>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+					<button class="btn btn-primary btn-block" ng-click="login.login()">Entrar</button>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input type="checkbox"> me mantenha logado
+					<input type="checkbox"> me mantenha logado
 					</label>
 				</div>
 			</form>
