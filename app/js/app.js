@@ -1,6 +1,7 @@
 var ford = angular.module('ford', [
   'ui.router',
   'ui.bootstrap',
+  'satellizer',
   'ui.select',
   'ngResource',
   'ford.core',
