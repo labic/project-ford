@@ -21,41 +21,106 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		alert('eae cara! eu sou o '+msg);
 	};
 
-	$scope.menuOptions = 
+	$scope.menuFiles = 
 	[
 		{
-			label: 'Save',      // menu option label
-			onClick: menuSave   // on click handler
+			label: 'Visualizar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
 		},
 		{
-			label: 'Edit',
-			onClick: menuEdit,
-			disabled: function (dataContext) {
-				return "item 2";
-			}
+			label: 'Baixar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
 		},
 		{
-			label: 'Details',
-			onClick: menuEdit
+			label: 'Editar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
 		},
 		{
-			divider: true       // will render a divider
+			label: 'Excluir',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
 		},
 		{
-			label: 'Remove',
-			onClick: menuRemove
+			label: 'Mover',
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}
+		}
+	];
+	$scope.menuFolders = 
+	[
+		{
+			label: 'Visualizar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Baixar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Editar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Excluir',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Mover',
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}
+		}
+	];
+	$scope.menuProcess = 
+	[
+		{
+			label: 'Visualizar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Baixar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Editar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Excluir',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Mover',
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
 		}
 	];
 
-	function menuSave($event) {
-		console.log($event);
-	}
-	function menuRemove($event) {
-		console.log($event);
-	}
-	function menuEdit($event) {
-		console.log($event);
-	}
 
 	$scope.open = function (size, template) {
 
