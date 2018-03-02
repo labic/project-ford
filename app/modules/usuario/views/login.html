@@ -1,0 +1,33 @@
+<div style="width:400px;margin-left: auto;margin-right: auto;">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 align="center">LOGIN</h2>
+			<p align="center">conecte-se usando</p>
+			<div class="social-buttons" align="center">
+				<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+				<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+			</div><br>
+			<p align="center">ou</p>
+			<form class="form" role="form" method="post" action="login" accept-charset="UTF-8">
+				<div class="form-group">
+					<input type="email" class="form-control" placeholder="Endereço de e-mail" ng-model="login.user.email" required>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" ng-model="login.user.password"  placeholder="Senha" required>
+					<div class="help-block text-right"><a href=""><font color="blue">Esqueceu a senha ?</font></a></div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-block" ng-click="login.login()">Entrar</button>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> me mantenha logado
+					</label>
+				</div>
+			</form>
+		</div>
+		<div class="bottom text-center">
+			Novo aqui ? <a href="#register"><b><font color="blue">Registre-se</font></b></a>
+		</div>
+	</div>
+</div>

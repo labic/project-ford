@@ -1,0 +1,30 @@
+<div style="width:400px;margin-left: auto;margin-right: auto;">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 align="center">REGISTRE-SE</h2>
+			<p align="center">registre-se usando</p>
+			<div class="social-buttons" align="center">
+				<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+				<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+			</div><br>
+			<p align="center">ou</p>
+			<form class="form" role="form" method="post" action="register" accept-charset="UTF-8">
+				<div class="form-group">
+					<input type="name" class="form-control" placeholder="Nome" ng-model="register.user.name" required>
+				</div>
+				<div class="form-group">
+					<input type="surname" class="form-control" placeholder="Sobrenome" ng-model="register.user.surname" required>
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" placeholder="Endereço de e-mail" ng-model="register.user.email" required>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" placeholder="Senha" ng-model="register.user.password" required>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-block" ng-click="register.register()" >Registrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

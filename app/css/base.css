@@ -1,0 +1,105 @@
+/* body */
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+}
+
+/* navbar */
+.navbar-topo {
+    background-color: #537EA3;
+    height: 60px;
+    color: #FFFFFF;
+	padding: 10px;
+}
+.navbar-topo ul {
+    float: right;
+}
+.navbar-topo li {
+    float: left;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    text-align: -webkit-match-parent;
+}
+.navbar-topo a, .navbar-topo a:hover, .navbar-topo a:focus{
+    text-decoration: none;
+    color: #FFFFFF;
+    cursor: hand;
+}
+.brand {
+    float: left;
+    display: block;
+    font-size: 30px;
+}
+.dropdown-menu {
+    left: auto;
+    right: 0;
+    color: #000000;
+    font-size: 14px;
+}
+.navbar-botao {
+    float: left;
+    font-size: 20px;
+    margin: 25px 15px 10px 15px;
+}
+
+/* login page */
+
+#login-dp:focus {
+    display: list-item;
+}
+#login-dp{
+    min-width: 250px;
+    padding: 14px 25px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+    margin-left: 10px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 48%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    min-width: 49%;
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    min-width: 49%;
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
