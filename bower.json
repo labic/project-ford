@@ -43,7 +43,8 @@
     "satellizer": "^0.15.5",
     "auth0-lock": "11.2.3",
     "angular-lock": "2.0.3",
-    "angular-jwt": "0.1.9"
+    "angular-jwt": "0.1.9",
+    "angular-right-click": "^0.1.1"
   },
   "overrides": {
     "angular": {

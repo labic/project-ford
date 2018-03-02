@@ -21,43 +21,85 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		alert('eae cara! eu sou o '+msg);
 	};
 
-	$scope.menuOptions = 
+	$scope.menuFolders = 
 	[
 		{
-			label: 'Save',      // menu option label
-			onClick: menuSave   // on click handler
+			label: 'Baixar',      // menu option label
+			onClick: function ($event) {
+				link.href =$event.dataContext.link;
+    			link.click();}    // on click handler
 		},
 		{
-			label: 'Edit',
-			onClick: menuEdit,
-			disabled: function (dataContext) {
-				return "item 2";
+			label: 'Editar',      // menu option label
+			onClick: function ($event) {
+				switch ($event.dataContext.type) {
+					case 'directory':
+						$scope.open('sm','modules/repositorio/views/partials/nova_pasta.html',$event.dataContext,'Editar');
+						break;						
+					case 'file':
+						$scope.open('sm','modules/repositorio/views/partials/nova_coleta_escolha.html',$event.dataContext, 'Editar');
+						break;
+				}
 			}
+				//fazer requisição EDIT pro banco de dados   // on click handler
 		},
 		{
-			label: 'Details',
-			onClick: menuEdit
+			label: 'Mover',
+			onClick:function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'},
 		},
 		{
-			divider: true       // will render a divider
-		},
-		{
-			label: 'Remove',
-			onClick: menuRemove
+			label: 'Excluir',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
 		}
 	];
 
-	function menuSave($event) {
-		console.log($event);
-	}
-	function menuRemove($event) {
-		console.log($event);
-	}
-	function menuEdit($event) {
-		console.log($event);
-	}
+	$scope.menuFiles = ([{
+			label: 'Visualizar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		}]).concat($scope.menuFolders);
 
-	$scope.open = function (size, template) {
+	$scope.menuProcess = 
+	[
+		{
+			label: 'Parar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Continuar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Mover',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Excluir',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Mover',
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		}
+	];
+
+
+	$scope.open = function (size, template,obj, metodo) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,
@@ -66,6 +108,12 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 			resolve: {
 				arquivos: function () {
 					return $scope.arquivos;
+				}, 
+				obj: function () {
+					return obj;
+				}, 
+				metodo: function () {
+					return metodo;
 				} 
 			}
 		});
@@ -220,102 +268,4 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		$("#loading" + divId).hide();
 		$("#error" + divId).show();
 	}
-});
-
-
-ford.controller('MenuSup', function ($scope, $uibModalInstance, arquivos, $uibModal) {
-
-	$scope.arquivos = arquivos;
-	$scope.sortArquivos = function(){
-		$scope.arquivos.sort(function(a,b){
-			//mesmo tipo
-			if (a.type == b.type) {
-				return a.name.localeCompare(b.name);
-			}
-			//tipos diferentes
-			else {
-				//se um dos dois eh diretorio
-				if (a.type == 'directory') {
-					return -1;
-				} else if (b.type == 'directory') {
-					return 1;
-				}
-				//se um dos dois eh arquivo pronto
-				if (a.type == 'file') {
-					return -1;
-				} else if (b.type == 'file') {
-					return 1;
-				}
-			}
-		});
-	};
-
-	$scope.cancel = function () {
-		$uibModalInstance.dismiss('cancel');
-	};
-
-	// funções para menu superior
-	$scope.newFolder = function(nome) {
-		var obj = { 
-			name:nome,
-			described:'',
-			date_created_at: (new Date()),
-			date_last_modify:(new Date()),
-			type:'directory'
-		};
-		//inserindo localmente
-		$scope.arquivos.push(obj);
-		$scope.sortArquivos();
-		//fazendo request pro servidor
-		// $http({
-		//   url: $scope.url,
-		//   method:'POST',
-		//   params:{Nome:nome,tipo:'pasta'}
-		// })
-		// .then(function (response) {
-		//     console.log(response)
-		// });
-		$scope.cancel();
-	};
-
-	$scope.open = function (size, template) {
-
-		var modalInstance = $uibModal.open({
-			templateUrl: template,
-			controller: 'MenuSup',
-			size: size,
-			resolve: {
-				arquivos: function () {
-					return $scope.arquivos;
-				} 
-			}
-		});
-		modalInstance.result.then(function (selectedItem) {
-			$scope.selected = selectedItem;
-		});
-	};
-
-	$scope.newArchive = function(nome,descricao,tags,periodo,chave) {
-		var obj = { 
-			name:nome,
-			described:'',
-			date_created_at: (new Date()),
-			date_last_modify:(new Date()),
-			type:'file'
-		};
-		//inserindo localmente
-		$scope.arquivos.push(obj);
-		$scope.sortArquivos();
-		//fazendo request pro servidor
-		// $http({
-		//   url: $scope.url,
-		//   method:'POST',
-		//   params:{Nome:nome,tipo:'pasta'}
-		// })
-		// .then(function (response) {
-		//     console.log(response)
-		// });
-
-		$scope.cancel();
-	};
 });
