@@ -3,6 +3,7 @@ var ford = angular.module('ford', [
   'ui.bootstrap',
   'satellizer',
   'ui.select',
+  'shContextMenu',
   'ngResource',
   'ford.core',
   'ford.login',
