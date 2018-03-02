@@ -8,9 +8,10 @@
       <div class="card" ng-repeat="obj in arquivos">
           <input type="checkbox" ng-click="selectObject(obj)">
           <div ng-switch="obj.type">
-              <img ng-switch-when="directory" src="img/objetos/pasta-100.png" class="svg-icon" ng-Dblclick="get(obj.name,'https://ford-data-api.herokuapp.com/subindex')">
-              <img ng-switch-when="file" src="img/objetos/arquivo-100.png" class="svg-icon">
-              <img ng-switch-when="process" src="img/objetos/arquivo-twitter.png" class="svg-icon">
+              <img ng-switch-when="directory" src="img/objetos/pasta-100.png" class="svg-icon" 
+              ng-Dblclick="get(obj.name,'https://ford-data-api.herokuapp.com/subindex')" sh-context-menu menu-options="menuFolders" context-data="obj">
+              <img ng-switch-when="file" src="img/objetos/arquivo-100.png" class="svg-icon" sh-context-menu menu-options="menuFiles" context-data="obj">
+              <img ng-switch-when="process" src="img/objetos/arquivo-twitter.png" class="svg-icon" sh-context-menu menu-options="menuProcess" context-data="obj">
               <img ng-switch-default src="img/objetos/arquivo-100.png" class="svg-icon">
           </div>
           <label>{{obj.name}}</label>

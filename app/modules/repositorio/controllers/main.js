@@ -21,48 +21,9 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		alert('eae cara! eu sou o '+msg);
 	};
 
-	$scope.menuFiles = 
-	[
-		{
-			label: 'Visualizar',      // menu option label
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
-		},
-		{
-			label: 'Baixar',      // menu option label
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
-		},
-		{
-			label: 'Editar',      // menu option label
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
-		},
-		{
-			label: 'Excluir',      // menu option label
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
-		},
-		{
-			label: 'Mover',
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}
-		}
-	];
 	$scope.menuFolders = 
 	[
 		{
-			label: 'Visualizar',      // menu option label
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
-		},
-		{
 			label: 'Baixar',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
@@ -70,39 +31,47 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		},
 		{
 			label: 'Editar',      // menu option label
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
-		},
-		{
-			label: 'Excluir',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
 				$event.dataContext.name = 'mudei'}   // on click handler
 		},
 		{
 			label: 'Mover',
+			onClick:function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'},
+		},
+		{
+			label: 'Excluir',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}
+				$event.dataContext.name = 'mudei'}   // on click handler
 		}
 	];
-	$scope.menuProcess = 
-	[
-		{
+
+	$scope.menuFiles = ([{
 			label: 'Visualizar',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
 				$event.dataContext.name = 'mudei'}   // on click handler
-		},
+		}]).concat($scope.menuFolders);
+
+	$scope.menuProcess = 
+	[
 		{
-			label: 'Baixar',      // menu option label
+			label: 'Parar',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
 				$event.dataContext.name = 'mudei'}   // on click handler
 		},
 		{
-			label: 'Editar',      // menu option label
+			label: 'Continuar',      // menu option label
+			onClick: function ($event) {
+				//fazer requisição pro banco de dados
+				$event.dataContext.name = 'mudei'}   // on click handler
+		},
+		{
+			label: 'Mover',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
 				$event.dataContext.name = 'mudei'}   // on click handler
