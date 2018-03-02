@@ -26,14 +26,22 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		{
 			label: 'Baixar',      // menu option label
 			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				link.href =$event.dataContext.link;
+    			link.click();}    // on click handler
 		},
 		{
 			label: 'Editar',      // menu option label
 			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				switch ($event.dataContext.type) {
+					case 'directory':
+						$scope.open('sm','modules/repositorio/views/partials/nova_pasta.html',$event.dataContext,'Editar');
+						break;						
+					case 'file':
+						$scope.open('sm','modules/repositorio/views/partials/nova_coleta_escolha.html',$event.dataContext, 'Editar');
+						break;
+				}
+			}
+				//fazer requisição EDIT pro banco de dados   // on click handler
 		},
 		{
 			label: 'Mover',
@@ -91,7 +99,7 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 	];
 
 
-	$scope.open = function (size, template) {
+	$scope.open = function (size, template,obj, metodo) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,
@@ -100,6 +108,12 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 			resolve: {
 				arquivos: function () {
 					return $scope.arquivos;
+				}, 
+				obj: function () {
+					return obj;
+				}, 
+				metodo: function () {
+					return metodo;
 				} 
 			}
 		});
