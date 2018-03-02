@@ -7,8 +7,7 @@
       .state('visualizacao', {
       url: '/visualizacao',
       views: {
-        '': { templateUrl: 'modules/visualizacao/views/main.html' },
-        'navmenu': { templateUrl: 'modules/visualizacao/views/partials/navmenu.html' }
+        '': { templateUrl: 'modules/visualizacao/views/main.html' }
       }
     });
   });
