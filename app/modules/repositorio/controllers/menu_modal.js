@@ -41,6 +41,12 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 			resolve: {
 				arquivos: function () {
 					return $scope.arquivos;
+				}, 
+				obj: function () {
+					return obj;
+				}, 
+				metodo: function () {
+					return metodo;
 				} 
 			}
 		});
@@ -82,27 +88,27 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 
 	$scope.newColect = function() {
     
-    if($scope.obj == null) {
-        $scope.obj.date_created_at = (new Date());
-        $scope.obj.type = 'file';
-    };
-    $scope.obj.date_last_modify = (new Date());
-	
-		//inserindo localmente
-		if($scope.arquivos.indexOf($scope.obj) < 0) {
-			$scope.arquivos.push($scope.obj);
-		}
-		$scope.sortArquivos();
-		//fazendo request pro servidor
-		// $http({
-		//   url: $scope.url,
-		//   method:'POST',
-		//   params:{Nome:nome,tipo:'pasta'}
-		// })
-		// .then(function (response) {
-		//     console.log(response)
-		// });
+		if($scope.obj == null) {
+			$scope.obj.date_created_at = (new Date());
+			$scope.obj.type = 'file';
+		};
+		$scope.obj.date_last_modify = (new Date());
+		
+			//inserindo localmente
+			if($scope.arquivos.indexOf($scope.obj) < 0) {
+				$scope.arquivos.push($scope.obj);
+			}
+			$scope.sortArquivos();
+			//fazendo request pro servidor
+			// $http({
+			//   url: $scope.url,
+			//   method:'POST',
+			//   params:{Nome:nome,tipo:'pasta'}
+			// })
+			// .then(function (response) {
+			//     console.log(response)
+			// });
 
-		$scope.cancel();
+			$scope.cancel();
 	};
 });
