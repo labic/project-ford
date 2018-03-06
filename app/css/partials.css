@@ -479,14 +479,28 @@ body > .ui-select-bootstrap.open {
 
 /* Boooooooooooootstrap changes ****************************************************************/
 
+.modal-vis{
+	width: 100%;
+	height: calc(100% - 80px);
+	background: transparent;
+}
+
+.modal-vis .modal-content{
+	background: transparent;
+	border: 0;
+	box-shadow: 0 0 0 0;
+}
+
 .modal-content{
 	border-radius: 5px;
 }
 
+/*
 .modal-body{
 	padding: 10px 20px;
 	float:left;
 }
+*/
 
 .modal-body p{
 /*	font-size: 12px;*/
@@ -783,6 +797,45 @@ select.classic:focus {
 	outline: 0;
 }
 
+select.dark {
+	background-color: transparent;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #fff 50%),
+		linear-gradient(135deg, #fff 50%, transparent 50%),
+		linear-gradient(to right, transparent, transparent);
+	background-position:
+		calc(100% - 20px) calc(10px),
+		calc(100% - 13px) calc(10px),
+		100% 0;
+	background-size:
+		7px 7px,
+		7px 7px,
+		5em 5em;
+	background-repeat: no-repeat;
+}
+
+select.dark:focus {
+	background-color: transparent;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #fff 50%),
+		linear-gradient(135deg, #fff 50%, transparent 50%),
+		linear-gradient(to right, transparent, transparent);
+	background-position:
+		calc(100% - 20px) calc(10px),
+		calc(100% - 13px) calc(10px),
+		100% 0;
+	background-size:
+		7px 7px,
+		7px 7px,
+		5em 5em;
+	background-repeat: no-repeat;
+	outline: 0;
+}
+
+select.dark option{
+	color: black;
+}
+
 /* MENU DROPDOWN */
 
 .dropbtn {
@@ -923,3 +976,35 @@ select.classic:focus {
 }
 
 /*******************/
+
+#box-menu-visualizacao{
+	width: 100%; 
+	display: flex; 
+	justify-content: space-between; 
+	padding: 10px;
+}
+
+.option-menu-visualizacao{
+	width: 250px;
+}
+
+.button-menu-visualizacao{
+	height: 40px;
+	width: auto;
+	background: transparent;
+}
+
+.button-menu-visualizacao p{
+	float:left;
+	color: white;
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+.button-menu-visualizacao img{
+	float:left;
+	width: 30px;
+	height: 30px;
+	background: green;
+	margin-right: 20px;
+}
