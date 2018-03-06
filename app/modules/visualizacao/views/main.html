@@ -1,3 +1,57 @@
-<div id="str_main_monitor" class="str_main visualizacao" ng-controller="mainVisualizacao">
-  VISUALIZANDO AS COISAS
-  </div>
+<style>
+
+	path {
+		stroke: #000;
+		stroke-width: 0.25;
+		fill-rule: "evenodd";
+	}
+
+	text {
+		font: 12px sans-serif;
+		cursor: pointer;
+		stroke: #888;
+		stroke-width: 0.25;
+	}
+
+</style>
+
+<div id="box-menu-visualizacao">
+	<div class="option-menu-visualizacao">
+		<button class="btn button-menu-visualizacao">
+			<img />
+			<p>Download</p>
+		</button>
+	</div>
+	<div class="option-menu-visualizacao">
+		<select class="dark" style="color:white;">
+			<option value="" disabled selected>Opção de visualização</option>
+			<option value="volvo">Opção 1</option>
+			<option value="saab">Opção 2</option>
+			<option value="mercedes">Opção 3</option>
+		</select>
+	</div>
+	<div class="option-menu-visualizacao">
+		<button class="btn button-menu-visualizacao" style="float: right;">
+			<img />
+			<p>Download</p>
+		</button>
+	</div>
+</div>
+
+<div style="width: 100%;">
+	<div id="svg" style=" text-align: center;  background: white; padding: 25px;">
+	</div>
+</div>
+
+<script>
+	d3.select('seq').remove();
+	d3.select('svg').remove();
+	d3.select('texts').remove();
+
+	$( document ).ready(function() {
+
+		x = $( document ).height();
+
+		sunburst_zoom('data/concur.json', x - 150);
+	});
+</script>
