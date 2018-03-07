@@ -2,8 +2,9 @@
 ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arquivos, obj, metodo) {
 
 	$scope.arquivos = arquivos;
-  	$scope.obj = obj;
-  	$scope.metodo = metodo;
+	$scope.obj = obj;
+	$scope.metodo = metodo;
+	$scope.dirName = '';
 	$scope.sortArquivos = function(){
 		$scope.arquivos.sort(function(a,b){
 			//mesmo tipo
@@ -26,6 +27,15 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 				}
 			}
 		});
+	};
+
+	$scope.isDirectory = function(item) {
+		return item.type === 'directory';
+	};
+
+	$scope.moveItem = function(destiny) {
+		//madar requisição pro servidor utilizando o obj do scope e o nome do destino
+		alert(destiny);
 	};
 
 	$scope.cancel = function () {
@@ -110,5 +120,9 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 			// });
 
 			$scope.cancel();
+	};
+
+	$scope.upload = function() {
+
 	};
 });
