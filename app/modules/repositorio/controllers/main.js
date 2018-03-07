@@ -52,8 +52,8 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		{
 			label: 'Excluir',      // menu option label
 			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				$scope.selected = [$event.dataContext];
+				$scope.excluirObj();}   // on click handler
 		}
 	];
 
@@ -87,8 +87,9 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		{
 			label: 'Excluir',      // menu option label
 			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				$scope.selected = [$event.dataContext];
+				$scope.excluirObj();
+				}   // on click handler
 		},
 		{
 			label: 'Mover',
