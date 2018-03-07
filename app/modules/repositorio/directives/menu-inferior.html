@@ -21,7 +21,7 @@
     </div>
     <div class="col-md-2 text-center">
             <div class="form-group">
-                <ui-select ng-model="filter.ordem" theme="bootstrap">
+                <ui-select ng-model="filter.ordem" theme="bootstrap" style="width: 200px;">
                 <ui-select-match placeholder="Ordenar por...">{{$select.selected}}</ui-select-match>
                 <ui-select-choices repeat="item2 in ordem | filter: $select.search">
                  {{item2}}

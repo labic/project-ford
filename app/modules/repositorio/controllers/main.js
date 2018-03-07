@@ -41,13 +41,13 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 						break;
 				}
 			}
-				//fazer requisição EDIT pro banco de dados   // on click handler
+				//fazer requisição EDIT pro banco de dados   
 		},
 		{
 			label: 'Mover',
 			onClick:function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'},
+				$scope.open('sm','modules/repositorio/views/partials/mover.html',$event.dataContext, 'Mover')
+				},
 		},
 		{
 			label: 'Excluir',      // menu option label
@@ -61,7 +61,7 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 			label: 'Visualizar',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				$event.dataContext.name = 'visualizar'}   // on click handler
 		}]).concat($scope.menuFolders);
 
 	$scope.menuProcess = 
@@ -70,19 +70,19 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 			label: 'Parar',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				$event.dataContext.name = 'parado'}   // on click handler
 		},
 		{
 			label: 'Continuar',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				$event.dataContext.name = 'continuando'}   // on click handler
 		},
 		{
 			label: 'Mover',      // menu option label
 			onClick: function ($event) {
 				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
+				$event.dataContext.name = 'movido'}   // on click handler
 		},
 		{
 			label: 'Excluir',      // menu option label
@@ -90,15 +90,8 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 				$scope.selected = [$event.dataContext];
 				$scope.excluirObj();
 				}   // on click handler
-		},
-		{
-			label: 'Mover',
-			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'mudei'}   // on click handler
 		}
 	];
-
 
 	$scope.open = function (size, template,obj, metodo) {
 
@@ -129,6 +122,7 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		else
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
+
 	$scope.totalSelecionado = function () {
 		var total = 0;
 		for (var i = 0; i < $scope.selected.length; i++) {
@@ -246,7 +240,8 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		status: undefined,
 		ordem: 'Nome',
 		name: undefined,
-		favorite: false
+		favorite: false //,
+		// path: 'https://ford-data-api.herokuapp.com'
 	};
 
 	// Watch assiste a todos os filtros presentes na página esperando alguma alteração.
@@ -254,6 +249,11 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 
 		$(".repositorio").scrollTop("slow");
 		$scope.countpage = 0;
+
+		// //filtro de path para requisicao
+		// if (newFilter.path != oldFilter.path) {
+			
+		// }
 
 		if ($scope.startPage == 1) {
 			//carregar itens da primeira página
