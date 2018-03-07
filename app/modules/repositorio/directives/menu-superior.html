@@ -1,29 +1,39 @@
 <nav class="menu_sup">
 	<ul>
-		<li ng-click="open('sm','modules/repositorio/views/partials/nova_pasta.html',null,'Criar')">
+		<li ng-click="open('sm','modules/repositorio/views/partials/nova_pasta.html',null,'Criar')" style="cursor: pointer">
 			<img src="img/menu_superior/pasta-30.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="open('sm','modules/repositorio/views/partials/nova_coleta_escolha.html',null,'Criar')">
+		<li ng-click="open('sm','modules/repositorio/views/partials/nova_coleta_escolha.html',null,'Criar')" style="cursor: pointer">
 			<img src="img/menu_superior/arquivo-30.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="open('sm','modules/repositorio/views/partials/nova_visualizacao.html','Criar')">
-			<img src="img/menu_superior/visualizacao-off-30.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="open('sm','modules/repositorio/views/partials/nova_visualizacao_rapida.html')">
-			<img src="img/menu_superior/estatisticasBasicas-off.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="cliquei('mover')">
-			<img src="img/menu_superior/mover-off-30.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="cliquei('lixeira')" style="border-right: 1px solid #CCCCCC">
-			<img src="img/menu_superior/excluir-off-30.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="cliquei('play process')">
-			<img src="img/menu_superior/playProcess-off-30.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="open('vis','modules/visualizacao/views/main.html')">
-			<img src="img/menu_superior/estatisticasBasicas-off.png" class="svg-icon" height="30px" width="30px"></li>
-		<li ng-click="cliquei('stop process')">
-			<img src="img/menu_superior/stopProcess-off-30.png" class="svg-icon" height="30px" width="30px"></li>
+		<div ng-if="selected.length == 0" style="display:inline-block">
+			<li><img src="img/menu_superior/visualizacao-off-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li style="border-right: 1px solid #CCCCCC">
+				<img src="img/menu_superior/estatisticasBasicas-off.png" class="svg-icon" height="30px" width="30px"></li>
+			<li><img src="img/menu_superior/mover-off-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li style="border-right: 1px solid #CCCCCC">
+				<img src="img/menu_superior/excluir-off-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li><img src="img/menu_superior/playProcess-off-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li><img src="img/menu_superior/stopProcess-off-30.png" class="svg-icon" height="30px" width="30px"></li>
+		</div>
+		<div ng-if="selected.length != 0" style="display:inline-block">
+			<li ng-click="open('sm','modules/repositorio/views/partials/nova_visualizacao.html',null,'Criar')" style="cursor: pointer">
+				<img src="img/menu_superior/visualizacao-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li ng-click="open('sm','modules/repositorio/views/partials/nova_visualizacao_rapida.html')" style="cursor: pointer; border-right: 1px solid #CCCCCC">
+				<img src="img/menu_superior/estatisticasBasicas-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li ng-click="cliquei('mover')" style="cursor: pointer">
+				<img src="img/menu_superior/mover-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li ng-click="excluirObj()" style="border-right: 1px solid #CCCCCC; cursor: pointer">
+				<img src="img/menu_superior/excluir-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li ng-click="cliquei('play process')" style="cursor: pointer">
+					<img src="img/menu_superior/playProcess-30.png" class="svg-icon" height="30px" width="30px"></li>
+			<li ng-click="cliquei('stop process')" style="cursor: pointer">
+					<img src="img/menu_superior/stopProcess-30.png" class="svg-icon" height="30px" width="30px"></li>
+		</div>
 		<li><ul style="float:right; margin: 0px;">
-			<li ng-click="cliquei('upload')">
+			<li ng-click="cliquei('upload')" style="cursor: pointer">
 				<img src="img/menu_superior/upload-30.png" class="svg-icon" style="width: 30px; height:30px;"></li>
 			<li ng-if="selected.length == 0">
 				<img src="img/menu_superior/baixar-off-30.png" class="svg-icon" style="cursor: default; width: 30px; height:30px;"></li>
-			<li ng-if="selected.length > 0" ng-click="cliquei('download')">
+			<li ng-if="selected.length > 0" ng-click="cliquei('download')" style="cursor: pointer">
 				<img src="img/menu_superior/baixar-30.png" class="svg-icon" style="width: 30px; height:30px;"></li>
 			</ul></li>
 	</ul>

@@ -189,6 +189,30 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
 
+	$scope.excluirObj = function() {
+		//excluir vários objs
+		if($scope.selected.length >1) {
+			var decisao = confirm("Deseja mesmo excluir estes objetos?");
+			if (decisao) {
+				$scope.selected.forEach( function (item,index) {
+					$scope.arquivos.splice($scope.arquivos.indexOf($scope.selected[index]),1);
+					//enviar request pro servidor
+				});
+
+				$scope.selected = [];
+			};
+		} else {
+		//excluir um obj
+			var decisao = confirm("Deseja mesmo excluir este objeto?");
+			if (decisao) {
+				$scope.arquivos.splice($scope.arquivos.indexOf($scope.selected[0]),1);
+				$scope.selected = [];
+				//enviar request pro servidor
+			};
+		};
+
+	};
+
 	//menu da dashboard
 	$scope.menuDashboard = 
 	[
