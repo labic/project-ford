@@ -22,7 +22,7 @@
 	display: inline;
 	box-sizing: border-box;
 	text-align: -webkit-match-parent;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 .menu_sup ul li a:hover {
 	color: #009688;
