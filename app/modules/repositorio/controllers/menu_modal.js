@@ -33,9 +33,10 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 		return item.type === 'directory';
 	};
 
-	$scope.moveItem = function(destiny) {
-		//madar requisição pro servidor utilizando o obj do scope e o nome do destino
-		alert(destiny);
+	$scope.moveItem = function(destiny,obj) {
+		//madar requisição pro servidor utilizando o obj do scope e o id do destino
+		$scope.arquivos.splice($scope.arquivos.indexOf(obj),1);
+		$scope.cancel();
 	};
 
 	$scope.cancel = function () {

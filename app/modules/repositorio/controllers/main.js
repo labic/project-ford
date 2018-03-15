@@ -81,8 +81,7 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		{
 			label: 'Mover',      // menu option label
 			onClick: function ($event) {
-				//fazer requisição pro banco de dados
-				$event.dataContext.name = 'movido'}   // on click handler
+				$scope.open('sm','modules/repositorio/views/partials/mover.html',$event.dataContext, 'Mover')} 
 		},
 		{
 			label: 'Excluir',      // menu option label
