@@ -42,7 +42,7 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 		$uibModalInstance.dismiss('cancel');
 	};
 
-	$scope.open = function (size, template) {
+	$scope.open = function (size, template,obj, metodo) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,

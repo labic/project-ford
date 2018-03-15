@@ -7,8 +7,8 @@
 	<div class="modal-body">
 		<div class="box-input input-effect">
             <label class="box-title">Selecione abaixo uma pasta para mover seu objeto:</label>
-            <div class="form-group">
-            <ui-select ng-model="dirName" theme="bootstrap" style="width:95%;">
+            <div class="form-group" ng-model="dirName">
+            <ui-select theme="bootstrap" style="width:95%;">
                 <ui-select-match placeholder="Escolha o diretório...">{{$select.selected.name}}</ui-select-match>
                 <ui-select-choices repeat="dir in arquivos | filter: isDirectory">
                  {{dir.name}}
@@ -22,6 +22,6 @@
 </div>
 
 <div class="box-button">
-	<button class="btn button-modal" ng-click="moveItem(dirName)">{{metodo}}</button>
+	<button class="btn button-modal" ng-click="moveItem(dirName.name)">{{metodo}}</button>
 </div>
 
