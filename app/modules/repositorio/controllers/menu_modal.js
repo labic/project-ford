@@ -2,8 +2,9 @@
 ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arquivos, obj, metodo) {
 
 	$scope.arquivos = arquivos;
-  	$scope.obj = obj;
-  	$scope.metodo = metodo;
+	$scope.obj = obj;
+	$scope.metodo = metodo;
+	$scope.dirName = '';
 	$scope.sortArquivos = function(){
 		$scope.arquivos.sort(function(a,b){
 			//mesmo tipo
@@ -28,11 +29,31 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 		});
 	};
 
+	$scope.isDirectory = function(item) {
+		return item.type === 'directory';
+	};
+
+	$scope.moveItem = function(destiny,obj) {
+		//verificar se é um obj ou vários
+		if (Array.isArray(obj)) {
+			for(var n = 0 ;n < obj.length; n++) {
+				//madar requisição pro servidor utilizando o obj do scope e o id do destino
+				$scope.arquivos.splice($scope.arquivos.indexOf(obj[n]),1);
+			}
+
+		obj.splice(0,obj.length)
+		} else {
+			//madar requisição pro servidor utilizando o obj do scope e o id do destino
+			$scope.arquivos.splice($scope.arquivos.indexOf(obj),1);
+		}
+		$scope.cancel();
+	};
+
 	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
 	};
 
-	$scope.open = function (size, template) {
+	$scope.open = function (size, template,obj, metodo) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,
@@ -110,5 +131,9 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 			// });
 
 			$scope.cancel();
+	};
+
+	$scope.upload = function() {
+
 	};
 });
