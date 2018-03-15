@@ -34,8 +34,18 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 	};
 
 	$scope.moveItem = function(destiny,obj) {
-		//madar requisição pro servidor utilizando o obj do scope e o id do destino
-		$scope.arquivos.splice($scope.arquivos.indexOf(obj),1);
+		//verificar se é um obj ou vários
+		if (Array.isArray(obj)) {
+			for(var n = 0 ;n < obj.length; n++) {
+				//madar requisição pro servidor utilizando o obj do scope e o id do destino
+				$scope.arquivos.splice($scope.arquivos.indexOf(obj[n]),1);
+			}
+
+		obj.splice(0,obj.length)
+		} else {
+			//madar requisição pro servidor utilizando o obj do scope e o id do destino
+			$scope.arquivos.splice($scope.arquivos.indexOf(obj),1);
+		}
 		$scope.cancel();
 	};
 
