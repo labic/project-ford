@@ -46,6 +46,7 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		{
 			label: 'Mover',
 			onClick:function ($event) {
+				$scope.selected = [];
 				$scope.open('sm','modules/repositorio/views/partials/mover.html',$event.dataContext, 'Mover')
 				},
 		},
@@ -81,6 +82,7 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 		{
 			label: 'Mover',      // menu option label
 			onClick: function ($event) {
+				$scope.selected = [];
 				$scope.open('sm','modules/repositorio/views/partials/mover.html',$event.dataContext, 'Mover')} 
 		},
 		{
