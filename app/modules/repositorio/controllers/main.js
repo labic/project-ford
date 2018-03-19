@@ -134,6 +134,8 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 
 	//exemplo de get da api de dados
 	$scope.get = function(id, path) {
+		//esvaziar o array selected
+		$scope.selected = [];
 		//verifica se está voltando no diretório
 		for(var i = 0; i < $scope.endereco.length; i++) {
 			if ($scope.endereco[i].name == id) {
