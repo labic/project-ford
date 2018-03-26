@@ -7,7 +7,7 @@
 	position: fixed;
 	z-index: 0;
 	display: inline;
-	top: 80px;
+	top: 60px;
 	color: #000;
 	list-style:none;
 	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -62,7 +62,7 @@
 
 #principal {
 	position: fixed;
-	top: 130px;
+	top: 110px;
 	left: 0px;
 	width: calc(100% - 200px);
 	height: calc(100% - 180px);
@@ -70,6 +70,15 @@
 	background-color: #FFFFFF;
 	color: #707070;
 	overflow: auto;
+}
+
+#login {
+	position: fixed;
+	top: 100px;
+	left: calc(50% - 200px);
+	width: 400px;
+	background-color: #FFFFFF;
+	color: #707070;
 }
 
 .card {
