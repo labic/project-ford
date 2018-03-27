@@ -122,11 +122,11 @@
 
 #lateral_direita {
 	position: fixed;
-	top: 130px;
+	top: 110px;
 	right: 0px;
 	font-size: 12px;
 	width: 200px;
-	height: calc(100% - 180px);
+	height: calc(100% - 160px);
 	padding: 20px 10px 20px 10px;
 	background-color: #E1F5FE;
 	color: #707070;

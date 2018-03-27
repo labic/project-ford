@@ -124,14 +124,6 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 			$scope.selected.splice($scope.selected.indexOf(obj),1);
 	};
 
-	$scope.totalSelecionado = function () {
-		var total = 0;
-		for (var i = 0; i < $scope.selected.length; i++) {
-				total = total + $scope.selected[i].stats.space_disk;
-				}
-		return total;
-	};
-
 	//exemplo de get da api de dados
 	$scope.get = function(id, path) {
 		//esvaziar o array selected
@@ -274,6 +266,25 @@ ford.controller('mainRepositorio', function ($scope, $state, $auth, $http, setti
 	}, true);
 
 	/*************** Funções de tratamento ***************/
+	$scope.totalSelecionado = function () {
+		var total = 0;
+		for (var i = 0; i < $scope.selected.length; i++) {
+				total = total + $scope.selected[i].stats.space_disk;
+				}
+		return total;
+	};
+
+	$scope.isProcess = function () {
+		//nenhum obj selecionado
+		if($scope.selected.length <= 0)
+			return false;
+		//algum obj selecionado
+		for (var i = 0; i < $scope.selected.length; i++) {
+			if($scope.selected[i].type != 'process')
+				return false;
+		}
+		return true;
+	}
 
 	$scope.loading = function (divId, divResult) {
 		$("#loading" + divId).show();
