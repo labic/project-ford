@@ -107,6 +107,13 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 		$scope.cancel();
 	};
 
+	$scope.upload = function(name,description,tags, archive) {
+		//enviar request para servidor com os dados do arquivo upado
+		console.log(archive)
+		
+		$scope.cancel();
+	};
+
 	$scope.newColect = function() {
     
 		if($scope.obj == null) {
@@ -131,9 +138,5 @@ ford.controller('MenuSup', function ($scope, $uibModal, $uibModalInstance, arqui
 			// });
 
 			$scope.cancel();
-	};
-
-	$scope.upload = function() {
-
 	};
 });

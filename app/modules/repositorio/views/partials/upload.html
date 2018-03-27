@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<label class="modal-title">{{metodo}}</label>
+	<button class="modal-exit" ng-click="cancel()">X</button>
+</div>
+
+<div class="clear">
+	<div class="modal-body">	
+		<div class="box-input input-effect">
+			<label class="box-title">Nome</label>
+			<input class="input-text" type="text" ng-model="archName" placeholder="Digite o nome do arquivo">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Descrição</label>
+			<input class="input-text" type="text" ng-model="archDescrip" placeholder="Descrição... ( 120 caracteres )">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Tags para classifcação</label>
+			<input class="input-text" type="text" ng-model="archTags" placeholder="#politica, #futebol, #CopaDoMundo...">
+			<span class="focus-border"></span>
+		</div>
+
+		<div class="box-input input-effect">
+			<label class="box-title">Escolha um arquivo</label>
+
+			<label for="input15"></label>
+			<input type="file" id="input15" ng-model="archive">
+		</div>
+	</div>
+</div>
+
+<div class="box-button">
+    <!-- falta passar o objeto pra função -->
+	<button class="btn button-modal" ng-click="upload(archName,archDescrip,archTags, archive)">{{metodo}}</button>
+</div>
+
+<script type="text/javascript">
+	$('#input15').jfilestyle({buttonBefore: true, text: "Selecionar", placeholder: "ArquivoSelecionado.xx"});
+</script>
