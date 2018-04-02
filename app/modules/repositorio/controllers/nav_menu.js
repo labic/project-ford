@@ -1,10 +1,10 @@
 
-ford.controller('navMenu', function ($scope, $uibModal, settings) {
+ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) {
 
     $scope.config = settings.get('repositorio.filters');
 
     $scope.user = $scope.config.user;
-    console.log($scope.user)
+    console.log("Bem-vindo usuário "+$stateParams.userId)
 
 	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
