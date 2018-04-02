@@ -8,7 +8,8 @@
       url: '/repositorio',
       views: {
         '': { templateUrl: 'modules/repositorio/views/main.html' },
-        'navmenu': { templateUrl: 'modules/repositorio/views/partials/navmenu.html' }
+        'navmenu': { templateUrl: 'modules/repositorio/views/partials/navmenu.html',
+                      controller: 'navMenu' }
       }
     });
   });
