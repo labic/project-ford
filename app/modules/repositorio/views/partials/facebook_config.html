@@ -1,16 +1,16 @@
 <div class="modal-header">
-    <label class="modal-title">Configurações Twitter</label>
-    <button style="float:right" ng-click="cancel()">X</button>
+    <label class="modal-title">Configurações Facebook</label>
+    <button class="modal-exit" ng-click="cancel()">X</button>
 </div>
 <div class="modal-body">
     <p>As API keys e secret de outras contas podem ser forncecidas para aprimorar sua coleta.</p>
     <br>
-    <p><input type="text" ng-model="folderName" placeholder="API Secret"></p>
-    <p><input type="text" ng-model="folderName" placeholder="API Key"></p>
+    <p><input type="text" ng-model="api_secret" placeholder="API Secret"></p>
+    <p><input type="text" ng-model="api_key" placeholder="API Key"></p>
 </div>
 <div class="text-center">
-    <button class="btn" ng-click="newFolder(folderName)">Adicionar API</button>
+    <button class="btn" ng-click="addAPI(api_secret, api_key, 'F'); api_secret = '';api_key=''">Adicionar API</button>
 </div>
-<div class="" style="width:100%; height: 200px; background: red;">
-    
+<div class="" style="width:100%; height: 200px; overflow: auto; padding:20px;">
+    <h4 ng-repeat="key in user.api_keys">{{key}}</h4>
 </div>

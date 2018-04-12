@@ -1,22 +1,15 @@
 {
-  "main": [
-    {
-      "title": "Hits",
-      "tag": ""
-    },{
-      "title": "Educacional",
-      "tag": "categoria-educacional"
-    },{
-      "title": "Institucional",
-      "tag": "categoria-institucional"
-    },{
-      "title": "Humor",
-      "tag": "categoria-humor"
-    },{
-      "title": "Mídia",
-      "tag": "categoria-midia"
-    }
-  ],
+  "user": {
+    "name" : "Andrei",
+    "last_name":"Confeiteiro",
+    "born_date":"15/03/1973",
+    "social_medias":["Twitter"],
+    "folders":4,
+    "files":16,
+    "statistics":25,
+    "api_keys":["key_1"]
+
+  },
   "actors": [{
       "title": "Mídia",
       "tag": "mídia",

@@ -1,0 +1,61 @@
+<div class="modal-header">
+        <label class="modal-title">Editar dados de usuário</label>
+    </div>
+    
+    <div class="clear">
+        <div class="modal-body">
+    
+            <div class="box-input text-center" style="margin-bottom: 0;">
+                <p class="title-section">Informações</p>
+            </div>
+    
+            <div class="box-input input-effect">
+                <label class="box-title">Nome</label>
+                <input class="input-text" type="text" ng-model="user.name">
+                <span class="focus-border"></span>
+            </div>
+    
+            <div class="box-input input-effect">
+                <label class="box-title">Sobrenome</label>
+                <input class="input-text" type="text" ng-model="user.last_name">
+                <span class="focus-border"></span>
+            </div>
+    
+            <div class="box-input input-effect">
+                <label class="box-title">Data de nascimento</label>
+                <input class="input-text" type="text" ng-model="user.born_date">
+                <span class="focus-border"></span>
+            </div>
+    
+            <div class="box-input text-center" style="margin-bottom: 0;">
+                <p class="title-section">Vinculos</p>
+            </div>
+    
+            <div class="box-input text-center">
+    
+                <div class="box-vinculo">
+                    <button style="background-color: #fff;">
+                        <!-- chamar modal de vínculo de rede social -->
+                        <img height="30px" width="30px" src="img/icons/facebook.jpg">
+                    </button>
+                    <p class="button-vinculo" ng-init="facebook = (user.social_medias.indexOf('Facebook') >= 0 ? 'Vinculado' : 'Não vinculado')">
+                        {{facebook}}
+                    </p>
+                </div>
+    
+                <div class="box-vinculo">
+                    <button style="background-color: #fff;">
+                        <!-- chamar modal de vínculo de rede social -->
+                        <img height="30px" width="30px" src="img/icons/twitter.png"/>
+                    </button>
+                    <p class="button-vinculo" ng-init="twitter = (user.social_medias.indexOf('Twitter') >= 0 ? 'Vinculado' : 'Não vinculado')">
+                        {{twitter}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="box-input text-center">
+                <a class="btn button-modal" ng-click="cancel()">Terminar</a>
+            </div>
+        </div>
+    </div>
