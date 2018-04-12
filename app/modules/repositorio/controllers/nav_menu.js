@@ -22,32 +22,7 @@ ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) 
 		});
 	};
 
-	// funções para menu superior
-	$scope.configUser = function(name) {
-
-    if($scope.obj == null) {
-      $scope.obj = {
-        described : '',
-        date_created_at : (new Date()),
-        type : 'directory',
-        size : 0
-      }
-    }
-    $scope.obj.name = name;
-    $scope.obj.date_last_modify = (new Date());
-    
-		
-		//fazendo request pro servidor
-		// $http({
-		//   url: $scope.url,
-		//   method:'POST',
-		//   params:{Nome:nome,tipo:'pasta'}
-		// })
-		// .then(function (response) {
-		//     console.log(response)
-		// });
-		$scope.cancel();
-	};
+	// funções para menu superio
 
 	$scope.configTwitter = function(name,description,tags, archive) {
 		//enviar request para servidor com os dados do arquivo upado
@@ -106,6 +81,20 @@ ford.controller('navModal', function ($scope, $uibModal, $uibModalInstance, user
 		modalInstance.result.then(function (selectedItem) {
 			$scope.selected = selectedItem;
 		});
+	};
+
+	$scope.addAPI = function(api_secret, api_key, fonte) {
+
+		switch(fonte) {
+			case 'T':
+				//mandar request pro servidor adicionando a API
+				$scope.user.api_keys.push(api_key);
+				break;
+			case 'F':
+				//mandar request pro servidor adicionando a API
+				$scope.user.api_keys.push(api_key);
+				break;
+		}
 	};
 
 });
