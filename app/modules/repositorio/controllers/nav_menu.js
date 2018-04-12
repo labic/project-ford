@@ -5,7 +5,7 @@ ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) 
 
     $scope.user = $scope.config.user;
 
-	$scope.open = function (size, template,obj, metodo) {
+	$scope.open = function (size, template) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,
@@ -91,7 +91,7 @@ ford.controller('navModal', function ($scope, $uibModal, $uibModalInstance, user
 		$uibModalInstance.dismiss('cancel');
 	};
 
-	$scope.open = function (size, template,obj, metodo) {
+	$scope.open = function (size, template) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,
