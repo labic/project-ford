@@ -2,6 +2,7 @@ var ford = angular.module('ford', [
   'ui.router',
   'ui.bootstrap',
   'satellizer',
+  'ngCookies',
   'ui.select',
   'shContextMenu',
   'ngResource',
