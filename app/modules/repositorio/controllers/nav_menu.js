@@ -4,7 +4,6 @@ ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) 
     $scope.config = settings.get('repositorio.filters');
 
     $scope.user = $scope.config.user;
-    console.log("Bem-vindo usuário "+$stateParams.userId)
 
 	$scope.open = function (size, template,obj, metodo) {
 

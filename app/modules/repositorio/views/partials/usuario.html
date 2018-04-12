@@ -12,19 +12,19 @@
 
 		<div class="box-input input-effect">
 			<label class="box-title">Nome</label>
-			<input class="input-text" type="text" placeholder="Nome" value="Bruce" disabled>
+			<input class="input-text" type="text" placeholder="Nome" value="{{user.name}}" disabled>
 			<span class="focus-border"></span>
 		</div>
 
 		<div class="box-input input-effect">
 			<label class="box-title">Sobrenome</label>
-			<input class="input-text" type="text" placeholder="Sobrenome" value="Waynne Junior" disabled>
+			<input class="input-text" type="text" placeholder="Sobrenome" value="{{user.last_name}}" disabled>
 			<span class="focus-border"></span>
 		</div>
 
 		<div class="box-input input-effect">
 			<label class="box-title">Data de nascimento</label>
-			<input class="input-text" type="text" placeholder="Sobrenome" value="15/03/1973" disabled>
+			<input class="input-text" type="text" placeholder="Sobrenome" value="{{user.born_date}}" disabled>
 			<span class="focus-border"></span>
 		</div>
 
@@ -38,8 +38,8 @@
 				<button style="background-color: #fff;">
 					<img height="30px" width="30px" src="img/icons/facebook.jpg">
 				</button>
-				<p class="button-vinculo">
-					Vinculado
+				<p class="button-vinculo" ng-init="facebook = (user.social_medias.indexOf('Facebook') >= 0 ? 'Vinculado' : 'Não vinculado')">
+					{{facebook}}
 				</p>
 			</div>
 
@@ -47,8 +47,8 @@
 				<button style="background-color: #fff;">
 					<img height="30px" width="30px" src="img/icons/twitter.png"/>
 				</button>
-				<p class="button-vinculo">
-					Não vinculado
+				<p class="button-vinculo" ng-init="twitter = (user.social_medias.indexOf('Twitter') >= 0 ? 'Vinculado' : 'Não vinculado')">
+					{{twitter}}
 				</p>
 			</div>
 		</div>
@@ -59,19 +59,19 @@
 
 		<div class="box-estatistica">
 			<img height="65px" width="65px" src="img/objetos/pasta-100.png" />
-			<p class="box-estatistica-number">4</p>
+			<p class="box-estatistica-number">{{user.folders}}</p>
 			<p class="box-estatistica-text">Pastas</p>
 		</div>
 
 		<div class="box-estatistica">
 			<img height="65px" width="65px" src="img/objetos/arquivo-100.png" />
-			<p class="box-estatistica-number">16</p>
+			<p class="box-estatistica-number">{{user.files}}</p>
 			<p class="box-estatistica-text">Coletas</p>
 		</div>
 
 		<div class="box-estatistica">
 			<img height="65px" width="65px" src="img/objetos/estatisticas-100.png" />
-			<p class="box-estatistica-number">25</p>
+			<p class="box-estatistica-number">{{user.statistics}}</p>
 			<p class="box-estatistica-text">Estatísticas</p>
 		</div>
 		</div>
