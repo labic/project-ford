@@ -6,16 +6,17 @@ ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) 
     $scope.user = $scope.config.user;
     console.log("Bem-vindo usuário "+$stateParams.userId)
 
-	$scope.cancel = function () {
-		$uibModalInstance.dismiss('cancel');
-	};
-
 	$scope.open = function (size, template,obj, metodo) {
 
 		var modalInstance = $uibModal.open({
 			templateUrl: template,
-			controller: 'navMenu',
-			size: size
+			controller: 'navModal',
+			size: size,
+			resolve: {
+				user: function () {
+					return $scope.user;
+				}
+			}
 		});
 		modalInstance.result.then(function (selectedItem) {
 			$scope.selected = selectedItem;
@@ -65,7 +66,7 @@ ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) 
 		$scope.obj.date_last_modify = (new Date());
 		
 			//inserindo localmente
-			// if($scope.arquivos.indexOf($scope.obj) < 0) {
+			// if($scope.arquivos.indexOf($scope.obj) < 0) {navMenu
 			// 	$scope.arquivos.push($scope.obj);
 			// }
 			//fazendo request pro servidor
@@ -80,4 +81,32 @@ ford.controller('navMenu', function ($scope, $stateParams, $uibModal, settings) 
 
 			$scope.cancel();
 	};
+});
+
+
+ford.controller('navModal', function ($scope, $uibModal, $uibModalInstance, user) {
+
+	$scope.user = user;
+
+	$scope.cancel = function () {
+		$uibModalInstance.dismiss('cancel');
+	};
+
+	$scope.open = function (size, template,obj, metodo) {
+
+		var modalInstance = $uibModal.open({
+			templateUrl: template,
+			controller: 'navModal',
+			size: size,
+			resolve: {
+				user: function () {
+					return $scope.user;
+				}
+			}
+		});
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		});
+	};
+
 });
