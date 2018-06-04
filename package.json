@@ -20,7 +20,7 @@
     "angular-material": "^1.1.6",
     "angular-messages": "^1.6.8",
     "angular-moment": "^1.0.1",
-    "bower": "^1.8.0",
+    "bower": "^1.8.4",
     "express": "^4.13.4",
     "package.json": "^2.0.1",
     "right-click-menu": "0.0.4",
