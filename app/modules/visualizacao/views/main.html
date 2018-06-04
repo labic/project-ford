@@ -52,8 +52,7 @@
 	d3.select('texts').remove();
 
 	function desenhaPalavras(data) {
-		console.log(data);
-		var options = { width: '1000px', height: '1000px', divID: 'word_cloud', padding: 0 };
+		var options = { width: 1000, height: 1000, divID: 'word_cloud', padding: 0 };
 		plotWordCloud(options, data);
 	}
 
@@ -61,7 +60,7 @@
 
 
 		y = $(document).height();
-		// $.getJSON('data/hashtags.json', desenhaPalavras);
+		$.getJSON('data/hashtags.json', desenhaPalavras);
 		sunburst_zoom('data/concur.json', y - 150);
 
 	});
