@@ -1,5 +1,4 @@
 <style>
-
 	path {
 		stroke: #000;
 		stroke-width: 0.25;
@@ -12,7 +11,6 @@
 		stroke: #888;
 		stroke-width: 0.25;
 	}
-
 </style>
 
 <div id="box-menu-visualizacao">
@@ -43,15 +41,30 @@
 	</div>
 </div>
 
+<div style="width: 100%;">
+	<div id="word_cloud" style=" text-align: center;  background: white; padding: 25px;">
+	</div>
+</div>
+
 <script>
 	d3.select('seq').remove();
 	d3.select('svg').remove();
 	d3.select('texts').remove();
 
-	$( document ).ready(function() {
+	function desenhaPalavras(data) {
+		console.log(data);
+		var options = { width: '1000px', height: '1000px', divID: 'word_cloud', padding: 0 };
+		plotWordCloud(options, data);
+	}
 
-		x = $( document ).height();
+	$(document).ready(function () {
 
-		sunburst_zoom('data/concur.json', x - 150);
+
+		y = $(document).height();
+		// $.getJSON('data/hashtags.json', desenhaPalavras);
+		sunburst_zoom('data/concur.json', y - 150);
+
 	});
+
+
 </script>
